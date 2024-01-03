@@ -47,6 +47,8 @@ async function getPost(slug: any) {
           }
           text
           nextprojecttext
+          recplaceurl
+          replacetext
         }
         content
       }

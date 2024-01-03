@@ -134,6 +134,18 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
   (block: { fieldGroupName: string; }) => block.fieldGroupName === 'Post_Postinfo_Blocks_Picture'
 );
 
+// Använd dessa värden för att rendera din komponent
+  
+  const {
+    branding,
+    text = "Default text if null",
+    nextprojecttext = "Default next project text if null",
+    replaceurl = "#", // Standardvärde om inget finns
+    replacetext = "Default replace text if null", // Standardvärde om inget finns
+  } = additionalData?.data?.post?.PostInfo || {}; // Ge ett tomt objekt som standardvärde
+
+  
+
   // När data är hämtad, renderas sidan
   return (
     <div>
@@ -192,12 +204,17 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
           <img src={pictureBlock.picture.mediaItemUrl} alt="Block Image" />
         </div>
       )}
+<h2>{branding}</h2>
+      <div><h2>{text}</h2></div>
+      <div><p>{nextprojecttext}</p></div>
+      <div className="text-center mt-10">
+        <a href={replaceurl} className="btn inline-block my-4">{replacetext}</a>
+      </div>
+
 <div>
-<h2>{additionalData.data.post.PostInfo.text}</h2>
+
 </div>
-<div>
-<h2>{additionalData.data.post.PostInfo.nextProjectText}</h2>
-</div>
+
   </div>
   );
 };
