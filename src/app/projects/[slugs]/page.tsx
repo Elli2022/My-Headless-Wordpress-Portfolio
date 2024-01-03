@@ -6,6 +6,7 @@ import getPages from "@/pages/queries/getPages";
 import Navigation from "../../components/Navigation";
 import WP from "@/pages/api/wp";
 import getPost from "../../../pages/queries/getPost";
+import ProjectPost from "../../components/ProjectPost";
 
 
 interface Post {
@@ -149,18 +150,21 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
   // När data är hämtad, renderas sidan
   return (
     
-    <><div>
-      <Navigation
+    <><div className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-24">
+   
+      <Navigation 
         portfolioLink={mainLinks.portfolio}
         aboutLink={mainLinks.about}
-        contactLink={mainLinks.contact} />
+        contactLink={mainLinks.contact}  />
+
+<ProjectPost postData={globalPostData} />
       {/* <h1>{globalPostData.title}</h1>  */}
-      {globalPostData.featuredImage && globalPostData.featuredImage.node && (
+      {/* {globalPostData.featuredImage && globalPostData.featuredImage.node && (
         <img
           src={globalPostData.featuredImage.node.mediaItemUrl}
           alt={globalPostData.featuredImage.node.slug} />
-      )}
-      <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} />
+      )} */}
+      {/* <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} /> */}
 
       <div>
         <h2>{additionalData.data.post.PostInfo.branding}</h2>
