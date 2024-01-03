@@ -148,75 +148,86 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
 
   // När data är hämtad, renderas sidan
   return (
-    <div>
-    <Navigation 
-      portfolioLink={mainLinks.portfolio}
-      aboutLink={mainLinks.about}
-      contactLink={mainLinks.contact}
-    />
-    {/* <h1>{globalPostData.title}</h1>  */}
-    {globalPostData.featuredImage && globalPostData.featuredImage.node && (
-      <img
-        src={globalPostData.featuredImage.node.mediaItemUrl}
-        alt={globalPostData.featuredImage.node.slug}
-      />
-    )}
-    <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} />
+    
+    <><div>
+      <Navigation
+        portfolioLink={mainLinks.portfolio}
+        aboutLink={mainLinks.about}
+        contactLink={mainLinks.contact} />
+      {/* <h1>{globalPostData.title}</h1>  */}
+      {globalPostData.featuredImage && globalPostData.featuredImage.node && (
+        <img
+          src={globalPostData.featuredImage.node.mediaItemUrl}
+          alt={globalPostData.featuredImage.node.slug} />
+      )}
+      <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} />
 
-    <div>
-      <h2>{additionalData.data.post.PostInfo.branding}</h2>
-      {/* <p>{additionalData.data.post.PostInfo.subtitle}</p> */}
-      <p>{additionalData.data.post.PostInfo.projectintrotext}</p>
-      <p>{additionalData.data.post.PostInfo.projectdescription}</p>
-      <p>{additionalData.data.post.PostInfo.clientheading}</p>
-      <p>{additionalData.data.post.PostInfo.date}</p>
-      <p>{additionalData.data.post.PostInfo.client}</p>
+      <div>
+        <h2>{additionalData.data.post.PostInfo.branding}</h2>
+        {/* <p>{additionalData.data.post.PostInfo.subtitle}</p> */}
+        <p>{additionalData.data.post.PostInfo.projectintrotext}</p>
+        <p>{additionalData.data.post.PostInfo.projectdescription}</p>
+        <p>{additionalData.data.post.PostInfo.clientheading}</p>
+        <p>{additionalData.data.post.PostInfo.date}</p>
+        <p>{additionalData.data.post.PostInfo.client}</p>
 
-      <div className="text-center mt-10">
-        <a href={additionalData.data.post.PostInfo.liveworkbuttonURL} className="btn inline-block my-4">
-        {additionalData.data.post.PostInfo.liveworkbuttontext}
-        </a>
+        <div className="text-center mt-10">
+          <a href={additionalData.data.post.PostInfo.liveworkbuttonURL} className="btn inline-block my-4">
+            {additionalData.data.post.PostInfo.liveworkbuttontext}
+          </a>
+        </div>
+        <div>
+          {additionalPostInfo.PostInfo.blocks.map((block: { fieldGroupName: string; projectimages: any[]; }, index: any) => (
+            block.fieldGroupName === 'Post_Postinfo_Blocks_Images' &&
+            block.projectimages.map((image: { mediaItemUrl: string | undefined; }, imgIndex: React.Key | null | undefined) => (
+              <img key={imgIndex} src={image.mediaItemUrl} alt={`Image ${imgIndex}`} />
+            ))
+          ))}
+        </div>
+        {keyFindingsBlock && (
+          <div>
+            <h1>{keyFindingsBlock.keyfindingstitle}</h1>
+            <h2>{keyFindingsBlock.basics}</h2>
+            <p>{keyFindingsBlock.basicstext}</p>
+            <h2>{keyFindingsBlock.goals}</h2>
+            <p>{keyFindingsBlock.goalstext}</p>
+            <h2>{keyFindingsBlock.problems}</h2>
+            <p>{keyFindingsBlock.problemstext}</p>
+            <h2>{keyFindingsBlock.solutions}</h2>
+            <p>{keyFindingsBlock.solutionstext}</p>
+          </div>
+        )}
       </div>
-      <div>
-        {additionalPostInfo.PostInfo.blocks.map((block: { fieldGroupName: string; projectimages: any[]; }, index: any) => (
-          block.fieldGroupName === 'Post_Postinfo_Blocks_Images' &&
-          block.projectimages.map((image: { mediaItemUrl: string | undefined; }, imgIndex: React.Key | null | undefined) => (
-            <img key={imgIndex} src={image.mediaItemUrl} alt={`Image ${imgIndex}`} />
-          ))
-        ))}
-      </div>
-      {keyFindingsBlock && (
-      <div>
-        <h1>{keyFindingsBlock.keyfindingstitle}</h1>
-        <h2>{keyFindingsBlock.basics}</h2>
-        <p>{keyFindingsBlock.basicstext}</p>
-        <h2>{keyFindingsBlock.goals}</h2>
-        <p>{keyFindingsBlock.goalstext}</p>
-        <h2>{keyFindingsBlock.problems}</h2>
-        <p>{keyFindingsBlock.problemstext}</p>
-        <h2>{keyFindingsBlock.solutions}</h2>
-        <p>{keyFindingsBlock.solutionstext}</p>
-      </div>
-    )}
-    </div>
-    {pictureBlock && (
+      {pictureBlock && (
         <div>
           <img src={pictureBlock.picture.mediaItemUrl} alt="Block Image" />
         </div>
       )}
-<h2>{branding}</h2>
-      <div><h2>{text}</h2></div>
+
       <div><p>{nextprojecttext}</p></div>
       <div className="text-center mt-10">
-        <a href={replaceurl} className="btn inline-block my-4">{replacetext}</a>
+        <a href={replaceurl} className="btn inline-block my-4" style={{ position: 'relative', padding: '10px 40px 10px 25px' }}>
+          {replacetext}
+          <span style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', fontSize: 'larger' }}>&rarr;</span>
+        </a>
+      </div>
+      <div><h2>{text}</h2></div>
+      <div>
+
       </div>
 
-<div>
-
-</div>
-
-  </div>
+      <div>
+          <a href="mailto:contact@folio.design" className="text-blue-500 hover:underline">contact@folio.design</a>
+          <span> | </span>
+          <a href="https://www.linkedin.com/company/folio" className="text-blue-500 hover:underline">LINKEDIN.COM/FOLIO</a>
+        </div>
+    </div><p className="text-gray-600 text-sm">
+        © {new Date().getFullYear()} All rights reserved.
+      </p></>
+  
   );
+  
 };
+
 
 export default ProjectPage;
