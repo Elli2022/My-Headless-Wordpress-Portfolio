@@ -6,6 +6,8 @@ import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
 import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
+
+
 interface Post {
   id: string;
   title: string;
@@ -16,7 +18,7 @@ interface Post {
       slug: string;
     };
   };
-}
+} 
 
 
 

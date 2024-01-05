@@ -186,14 +186,13 @@ const renderImages = (blocks: any[]) => {
 
 <ProjectPost postData={globalPostData} />
       <div>
-        <h2>{additionalData.data.post.PostInfo.branding}</h2>
+        <h2 className="text-gray-500 uppercase tracking-wide">{additionalData.data.post.PostInfo.branding}</h2>
         <p>{additionalData.data.post.PostInfo.projectintrotext}</p>
         <p>{tosatisfyourgoaltext}</p>
-        
-        <p>{additionalData.data.post.PostInfo.projectdescription}</p>
-        <p>{additionalData.data.post.PostInfo.clientheading}</p>
-        <p>{additionalData.data.post.PostInfo.date}</p>
-        <p>{additionalData.data.post.PostInfo.client}</p>
+        <h1 className="text-2xl">{additionalData.data.post.PostInfo.projectdescription}</h1>
+        <p className="text-left mt-2 text-base text-gray-500">{additionalData.data.post.PostInfo.clientheading}</p>
+        <p className="text-left mt-2 text-base">{additionalData.data.post.PostInfo.date}</p>
+        <p >{additionalData.data.post.PostInfo.client}</p>
 
      
 
