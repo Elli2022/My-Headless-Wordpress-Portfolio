@@ -7,6 +7,7 @@ import Navigation from "../../components/Navigation";
 import WP from "@/pages/api/wp";
 import getPost from "../../../pages/queries/getPost";
 import ProjectPost from "../../components/ProjectPost";
+import Footer from "@/app/components/Footer";
 
 
 interface Post {
@@ -135,8 +136,9 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
   (block: { fieldGroupName: string; }) => block.fieldGroupName === 'Post_Postinfo_Blocks_Picture'
 );
 
-// Använd dessa värden för att rendera din komponent
-  
+
+
+//Destructering- värden för att rendera komponenter
   const {
     branding,
     text = "Default text if null",
@@ -147,18 +149,16 @@ const pictureBlock = additionalPostInfo?.PostInfo?.blocks?.find(
     liveworkbuttontext = "Default replace text if null",
     tosatisfyourgoaltext = "Default text if null", 
     blocks = [],
-  } = additionalData?.data?.post?.PostInfo || {}; // Ge ett tomt objekt som standardvärde
+  } = additionalData?.data?.post?.PostInfo || {}; 
 
-  
 
-// Function to render images from blocks
 const renderImages = (blocks: any[]) => {
   // Extrahera bilder från blocks
   const images = blocks
     .filter((block: { fieldGroupName: string; }) => block.fieldGroupName === 'Post_Postinfo_Blocks_Images')
     .flatMap((block: { projectimages: any; }) => block.projectimages);
 
-  // Rendera varje bild med rätt Tailwind CSS-klass
+
   return (
     <div className="grid grid-cols-2 gap-4">
       {images.map((image: { mediaItemUrl: string | undefined; }, index: number) => (
@@ -166,15 +166,13 @@ const renderImages = (blocks: any[]) => {
           key={index}
           src={image.mediaItemUrl} 
           alt={`Image ${index}`}
-          // För den första bilden, använd 'col-span-2' för att ta upp två kolumner
-          // För de följande bilderna, använd 'col-span-1' för att ta upp en kolumn
           className={`w-full object-cover ${index === 0 ? 'col-span-2' : 'col-span-1'}`}
         />
       ))}
     </div>
   );
 };
-
+;
 
   // När data är hämtad, renderas sidan
   return (
@@ -209,6 +207,7 @@ const renderImages = (blocks: any[]) => {
   <div className="grid-cols-2 mb-20 gap-2 lg:gap-9">
   {renderImages(additionalPostInfo?.PostInfo?.blocks || [])}
 </div>
+
 
         {keyFindingsBlock && (
           <div>
@@ -247,9 +246,7 @@ const renderImages = (blocks: any[]) => {
           <span> | </span>
           <a href="https://www.linkedin.com/company/folio" className="text-blue-500 hover:underline">LINKEDIN.COM/FOLIO</a>
         </div>
-        <p className="text-gray-600 text-sm">
-        © {new Date().getFullYear()} All rights reserved.
-      </p>
+        <Footer />
     </div>
     </>
   

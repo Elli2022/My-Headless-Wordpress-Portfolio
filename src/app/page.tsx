@@ -5,7 +5,7 @@ import getHome from "@/pages/queries/getHome";
 import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
 import PaginationControls from "./components/PaginationControls";
-
+import Footer from "./components/Footer";
 interface Post {
   id: string;
   title: string;
@@ -132,23 +132,25 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
     
 {/* Inläggen */}
-
-        <div className="posts-container">
-          {posts.map((post: any) => (
-            <Link key={post.id} href={`/projects/${post.slug}`}>
-              {post.featuredImage?.node?.mediaItemUrl && (
-                <img
-                  src={post.featuredImage.node.mediaItemUrl}
-                  alt={post.title}
-                />
-              )}
-              <div className="post-info">
-                <h2 className="post-title">{post.title}</h2>
-               <p>{post.PostInfo.subtitle}</p>
-              </div>
-            </Link>
-          ))}
+     {/* Posts Container */}
+     <div className="grid grid-cols-3 gap-4 mb-16">
+  {posts.map((post: any) => (
+    <div key={post.id} className="w-full pb-[100%] relative mb-16">
+      <Link href={`/projects/${post.slug}`}>
+        <img
+          src={post.featuredImage.node.mediaItemUrl}
+          alt={post.title}
+          className="absolute w-full h-full object-cover"
+        />
+            <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
+          <h2 className="text-lg font-bold text-center">{post.title}</h2>
+          <p>{post.PostInfo.subtitle}</p>
         </div>
+      </Link>
+    </div>
+  ))}
+</div>
+
  
 
 
@@ -174,13 +176,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
           {data?.homePage.freelanceProjects.freelanceProjectsButton}
         </a>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center py-4 mt-4">
-        <p className="text-gray-600 text-sm">
-          © {new Date().getFullYear()} All rights reserved.
-        </p>
-      </footer>
+      <Footer />
+      
     </main>
   );
 }
