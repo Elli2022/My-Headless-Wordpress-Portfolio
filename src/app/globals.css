@@ -175,3 +175,27 @@ p{
   font-size: 1.1rem;
   text-align: center;
 }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; /* Spacing between items */
+}
+
+.gallery-image:first-child {
+  grid-column: span 2; /* The first image will span two columns */
+  grid-row: span 2; /* The first image will span two rows */
+}
+
+/* Ensure the rest of the images only take up one column and one row */
+.gallery-image:not(:first-child) {
+  grid-column: span 1;
+}
+
+
+/* Ensure other images only take one cell */
+.gallery-image:not(:first-child) {
+  grid-row: span 1;
+}
+
+

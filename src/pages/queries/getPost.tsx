@@ -49,6 +49,7 @@ async function getPost(slug: any) {
           nextprojecttext
           recplaceurl
           replacetext
+          tosatisfyourgoaltext
         }
         content
       }
