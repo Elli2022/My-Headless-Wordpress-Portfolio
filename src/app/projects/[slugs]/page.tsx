@@ -240,7 +240,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             {renderImages(additionalPostInfo?.PostInfo?.blocks || [])}
           </div>
 
-          <h1 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-4xl 4xl:text-4xl font-semibold">
+          <h1 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-4xl 4xl:text-4xl font-semibold mb-4">
             {keyFindingsBlock.keyfindingstitle}
           </h1>
 
@@ -283,23 +283,22 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
         </div>
 
         {pictureBlock && (
-          <div className="relative h-72 mb-20 bg-dark-kobolt-blue flex justify-center mt-24 md:h-96 ">
-            <div className="relative ">
-              {/* Overlay box */}
-              <div
-                className="absolute inset-x-0 top-1/3 w-full bg-[#034753] shadow-md"
-                style={{ height: "50vh" }}
-              ></div>
-              {/* Image on top of the overlay box */}
-              <img
-                src={pictureBlock.picture.mediaItemUrl}
-                alt="Block Image"
-                className="w-full relative"
-                style={{ zIndex: 0 }}
-              />
-            </div>
-          </div>
-        )}
+  <div className="relative h-72 mb-40 bg-dark-kobolt-blue mt-24 md:h-96">
+    {/* Overlay box */}
+    <div
+      className="absolute inset-0 top-1/4 w-screen left-1/2 transform -translate-x-1/2 bg-[#034753] shadow-md"
+      style={{ height: "50vh" }}
+    ></div>
+    {/* Image on top of the overlay box */}
+    <img
+      src={pictureBlock.picture.mediaItemUrl}
+      alt="Block Image"
+      className="w-full relative"
+      style={{ zIndex: 0 }}
+    />
+  </div>
+)}
+
 
         <div>
           <p>{nextprojecttext}</p>
