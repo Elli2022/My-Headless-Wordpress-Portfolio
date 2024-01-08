@@ -185,42 +185,64 @@ const renderImages = (blocks: any[]) => {
         contactLink={mainLinks.contact}  />
 
 <ProjectPost postData={globalPostData} />
-      <div>
-        <h2 className="text-gray-500 uppercase tracking-wide">{additionalData.data.post.PostInfo.branding}</h2>
-        <p>{additionalData.data.post.PostInfo.projectintrotext}</p>
-        <p>{tosatisfyourgoaltext}</p>
-        <h1 className="text-2xl">{additionalData.data.post.PostInfo.projectdescription}</h1>
-        <p className="text-left mt-2 text-base text-gray-500">{additionalData.data.post.PostInfo.clientheading}</p>
-        <p className="text-left mt-2 text-base">{additionalData.data.post.PostInfo.date}</p>
-        <p >{additionalData.data.post.PostInfo.client}</p>
+      <div >
+      <h2 className="text-gray-500 uppercase tracking-wide text-xs">BRANDING</h2>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-2">{additionalData.data.post.PostInfo.projectintrotext}</h1>
+        <p className="text-left text-base mt-2">{tosatisfyourgoaltext}</p>
 
-     
+        <div className="flex flex-row items-center mt-4 space-x-4">
+  {/* Client heading och client */}
+  <div className="flex flex-col space-y-1">
+    <h3 className="text-gray-500 uppercase tracking-wide text-xs">
+      {additionalData.data.post.PostInfo.clientheading}
+    </h3>
+    <p>{additionalData.data.post.PostInfo.client}</p>
+  </div>
 
-        <div className="text-center mt-10">
-        <a href={liveworkbuttontext} className="btn inline-block my-4" style={{ position: 'relative', padding: '10px 40px 10px 25px' }}>
-          {liveworkbuttontext}
-          <span style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', fontSize: 'larger' }}>&rarr;</span>
-        </a>
-      </div>
+  {/* Time och date */}
+  <div className="flex flex-col space-y-1 items-center">
+    <p className="text-gray-500 uppercase tracking-wide text-xs">
+      {additionalData.data.post.PostInfo.time}
+    </p>
+    <p>{additionalData.data.post.PostInfo.date}</p>
+  </div>
+
+  {/* Live work knappen */}
+  <div>
+    <a href={liveworkbuttontext} className="btn inline-block" style={{ padding: '10px 40px 10px 25px', position: 'relative' }}>
+      {liveworkbuttontext}
+      <span style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>&rarr;</span>
+    </a>
+  </div>
+</div>
+
      
   <div className="grid-cols-2 mb-20 gap-2 lg:gap-9">
   {renderImages(additionalPostInfo?.PostInfo?.blocks || [])}
 </div>
 
 
-        {keyFindingsBlock && (
-          <div>
-            <h1>{keyFindingsBlock.keyfindingstitle}</h1>
-            <h2>{keyFindingsBlock.basics}</h2>
-            <p>{keyFindingsBlock.basicstext}</p>
-            <h2>{keyFindingsBlock.goals}</h2>
-            <p>{keyFindingsBlock.goalstext}</p>
-            <h2>{keyFindingsBlock.problems}</h2>
-            <p>{keyFindingsBlock.problemstext}</p>
-            <h2>{keyFindingsBlock.solutions}</h2>
-            <p>{keyFindingsBlock.solutionstext}</p>
-          </div>
-        )}
+{keyFindingsBlock && (
+  <div className="grid grid-cols-2 grid-rows-2 gap-4">
+    <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+      <h2 className="text-lg font-semibold">{keyFindingsBlock.basics}</h2>
+      <p>{keyFindingsBlock.basicstext}</p>
+    </div>
+    <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+      <h2 className="text-lg font-semibold">{keyFindingsBlock.goals}</h2>
+      <p>{keyFindingsBlock.goalstext}</p>
+    </div>
+    <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+      <h2 className="text-lg font-semibold">{keyFindingsBlock.problems}</h2>
+      <p>{keyFindingsBlock.problemstext}</p>
+    </div>
+    <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+      <h2 className="text-lg font-semibold">{keyFindingsBlock.solutions}</h2>
+      <p>{keyFindingsBlock.solutionstext}</p>
+    </div>
+  </div>
+)}
+
       </div>
       {pictureBlock && (
         <div>
