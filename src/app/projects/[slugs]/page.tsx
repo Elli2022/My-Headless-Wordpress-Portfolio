@@ -284,10 +284,14 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
 
         {pictureBlock && (
   <div className="relative h-72 mb-40 bg-dark-kobolt-blue mt-24 md:h-96">
+    {/* Next Project Text */}
+   <div className="absolute w-full text-center z-10" style={{ top: '120%' }}> {/* Justera top enligt dina behov */}
+      <p className="text-xl lg:text-3xl">{nextprojecttext}</p>
+    </div>
     {/* Overlay box */}
     <div
       className="absolute inset-0 top-1/4 w-screen left-1/2 transform -translate-x-1/2 bg-[#034753] shadow-md"
-      style={{ height: "50vh" }}
+      style={{ height: "55vh" }}
     ></div>
     {/* Image on top of the overlay box */}
     <img
@@ -300,9 +304,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
 )}
 
 
-        <div>
-          <p>{nextprojecttext}</p>
-        </div>
+      
         <div className="text-center mt-10">
           <a
             href={replaceurl}
