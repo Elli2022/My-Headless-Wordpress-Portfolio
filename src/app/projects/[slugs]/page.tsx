@@ -333,7 +333,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             href="mailto:contact@folio.design"
             className="text-blue-500 hover:underline"
           >
-            contact@folio.design
+            CONTACT@FOLIO.DESIGN
           </a>
           <span>|</span>
           <a
