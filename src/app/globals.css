@@ -102,14 +102,14 @@ link, .home2-link{
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-  gap: 1rem; /* Adjust the spacing between images as needed */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem; 
 }
 
 .gallery-image {
-  width: 100%; /* Makes the image responsive */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: cover; /* Cover the area without stretching the image */
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
 }
 
 
@@ -176,11 +176,11 @@ p{
   text-align: center;
 }
 
-.gallery {
+/* .gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem; /* Spacing between items */
-}
+  gap: 1rem; 
+} */
 
 .gallery-image:first-child {
   grid-column: span 2; /* The first image will span two columns */

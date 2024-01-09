@@ -283,15 +283,11 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
         </div>
 
         {pictureBlock && (
-  <div className="relative h-72 mb-40 bg-dark-kobolt-blue mt-24 md:h-96">
-    {/* Next Project Text */}
-   <div className="absolute w-full text-center z-10" style={{ top: '120%' }}> {/* Justera top enligt dina behov */}
-      <p className="text-xl lg:text-3xl">{nextprojecttext}</p>
-    </div>
+  <div className="relative mb-40 bg-dark-kobolt-blue mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
     {/* Overlay box */}
     <div
-      className="absolute inset-0 top-1/4 w-screen left-1/2 transform -translate-x-1/2 bg-[#034753] shadow-md"
-      style={{ height: "55vh" }}
+      className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md mb-20"
+    
     ></div>
     {/* Image on top of the overlay box */}
     <img
@@ -300,15 +296,14 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
       className="w-full relative"
       style={{ zIndex: 0 }}
     />
-  </div>
-)}
-
-
-      
-        <div className="text-center mt-10">
+     {/* Next Project Text */}
+   <div className="absolute w-full text-center z-10"> 
+      <p className="text-xs lg:text-3xl text-white">{nextprojecttext}</p>
+    </div>
+     <div className="text-center mt-10">
           <a
             href={replaceurl}
-            className="btn inline-block my-4"
+            className="text-xl lg:text-3xl font-bold text-white inline-block my-4"
             style={{ position: "relative", padding: "10px 40px 10px 25px" }}
           >
             {replacetext}
@@ -325,26 +320,24 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             </span>
           </a>
         </div>
-        <div>
-          <h2>{text}</h2>
-        </div>
+  </div>
+)}
 
-        <div className="flex justify-center items-center space-x-2">
-          <a
-            href="mailto:contact@folio.design"
-            className="text-blue-500 hover:underline"
-          >
-            CONTACT@FOLIO.DESIGN
-          </a>
-          <span>|</span>
-          <a
-            href="https://www.linkedin.com/company/folio"
-            className="text-blue-500 hover:underline"
-          >
-            LINKEDIN.COM/FOLIO
-          </a>
-        </div>
-        <Footer />
+{/* Additional text */}
+<h2 className="text-2xl text-center mb-10 font-semibold" style={{ zIndex: "2" }}>{text}</h2>
+
+{/* Contact information and links */}
+<div className="flex justify-center items-center space-x-2 mb-10" style={{ zIndex: "2" }}>
+  <a href="mailto:contact@folio.design" className="text-blue-500 hover:underline">
+    CONTACT@FOLIO.DESIGN
+  </a>
+  <span>|</span>
+  <a href="https://www.linkedin.com/company/folio" className="text-blue-500 hover:underline">
+    LINKEDIN.COM/FOLIO
+  </a>
+</div>
+
+<Footer />
       </div>
     </>
   );
