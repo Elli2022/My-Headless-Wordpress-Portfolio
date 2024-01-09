@@ -323,11 +323,11 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   </div>
 )}
 
-{/* Additional text */}
-<h2 className="text-2xl text-center mb-10 font-semibold" style={{ zIndex: "2" }}>{text}</h2>
+{/* Additional text that should not be covered */}
+<h2 className="text-2xl text-center mb-10 font-semibold relative z-10">{text}</h2>
 
 {/* Contact information and links */}
-<div className="flex justify-center items-center space-x-2 mb-10" style={{ zIndex: "2" }}>
+<div className="flex justify-center items-center space-x-2 mb-10 relative z-10">
   <a href="mailto:contact@folio.design" className="text-blue-500 hover:underline">
     CONTACT@FOLIO.DESIGN
   </a>
