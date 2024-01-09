@@ -66,9 +66,9 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex items-center justify-center gap-2 ">
       <button
-        className="bg-blue-500 text-white p-1"
+        className="bg-blue-500 text-white p-1 px-4 py-2 border rounded-full font-semibold text-sm"
         disabled={!hasPrevPage}
         onClick={handlePrevPage}
       >
@@ -78,7 +78,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
       <div>{page}</div>
 
       <button
-        className="bg-blue-500 text-white p-1"
+        className="bg-blue-500 text-white p-1 px-4 py-2 border rounded-full font-semibold text-sm"
         disabled={!hasNextPage}
         onClick={handleNextPage}
       >

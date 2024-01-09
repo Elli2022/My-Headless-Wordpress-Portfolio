@@ -87,7 +87,7 @@ export default async function Home({
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-24">
+    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-15">
       {/* Navigationsmenyn */}
       <nav className="flex justify-between items-center">
         {/* Vänster länk */}
@@ -127,7 +127,7 @@ export default async function Home({
       </nav>
 
       {/* Header-sektionen */}
-      <header className="text-center mt-10">
+      <header className="text-center mt-40">
         <p className="mt-4">{data?.homePage.presentingText}</p>
         <h1
           className="text-5xl font-bold"
@@ -141,10 +141,10 @@ export default async function Home({
       </header>
 
       {/* "Explore Works"-knappen och andra länkar */}
-      <div className="text-center mt-10">
+      <div className="text-center mt-7">
         <a
           href={data?.homePage.buttonUrl}
-          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5"
+          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5 mb-40"
         >
           {data?.homePage.buttonText}
         </a>
@@ -153,7 +153,7 @@ export default async function Home({
             <a
               key={link.id}
               href={link.uri}
-              className="link inline-block mx-2 my-2 font-bold"
+              className="link inline-block mx-2 my-2 font-bold mb-10"
             >
               {link.title}
             </a>
@@ -170,7 +170,7 @@ export default async function Home({
               <img
                 src={post.featuredImage.node.mediaItemUrl}
                 alt={post.title}
-                className="absolute w-full h-full object-cover"
+                className="absolute w-full h-full object-cover mb-40"
               />
               <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
                 <h2 className="text-lg font-bold text-center">{post.title}</h2>
@@ -188,17 +188,19 @@ export default async function Home({
         startCursor={pageInfo.startCursor}
         data={undefined}
         beforeCursor={""}
-        posts={""} // andra props vid behov
+        posts={""} 
       />
 
       {/* Freelance-projektsektionen */}
       <div className="mt-4 text-center">
-        <p className="text-xl">
+        <p className="text-xs font-semibold">
           {data?.homePage.freelanceProjects.freelanceTitle}
         </p>
+        <br />
         <h3 className="text-4xl font-semibold">
           {data?.homePage.freelanceProjects.freelanceDescription}
         </h3>
+        
         <a
           href={data?.homePage.freelanceProjects.freelanceContactUrl}
           className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5">

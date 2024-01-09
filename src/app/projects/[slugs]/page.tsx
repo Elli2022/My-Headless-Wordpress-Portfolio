@@ -198,38 +198,34 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
           </p>
 
           <div className="flex flex-row items-center space-x-14 mb-10">
-            {" "}
-            {/* Ökat space-x-* värde */}
             {/* Client heading och client */}
-            <div className="flex flex-col space-y-1 items-center mb-4">
-              <h3 className="text-gray-500 uppercase tracking-wide text-xs mb-2">
+            <div className="flex flex-col space-y-1 items-center mb-4 md:mb-6">
+              <h3 className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">
                 {additionalData.data.post.PostInfo.clientheading}
               </h3>
-              <p>{additionalData.data.post.PostInfo.client}</p>
+              <p className="text-xs md:text-sm lg:text-base">
+                {additionalData.data.post.PostInfo.client}
+              </p>
             </div>
+
             {/* Time och date */}
-            <div className="flex flex-col space-y-1 items-center mb-4">
-              <h3 className="text-gray-500 uppercase tracking-wide text-xs mb-2">
+            <div className="flex flex-col space-y-1 items-center mb-4 md:mb-6">
+              <h3 className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">
                 {additionalData.data.post.PostInfo.time}
               </h3>
-              <p>{additionalData.data.post.PostInfo.date}</p>
+              <p className="text-xs md:text-sm lg:text-sm">
+                {additionalData.data.post.PostInfo.date}
+              </p>
             </div>
+
             {/* Live work knappen */}
-            <div className="mb-6">
+            <div className="mb-4 md:mb-6">
               <a
                 href={liveworkbuttontext}
-                className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5"
-                style={{ padding: "10px 40px 10px 25px", position: "relative" }}
+                className="py-2 px-8 md:py-2.5 md:px-10 lg:py-3 lg:px-12 text-xs md:text-sm lg:text-base bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline transition-colors duration-300 ease inline-block mt-5"
               >
                 {liveworkbuttontext}
-                <span
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                  }}
-                >
+                <span className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   &rarr;
                 </span>
               </a>
@@ -283,63 +279,68 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
         </div>
 
         {pictureBlock && (
-  <div className="relative mb-40 bg-dark-kobolt-blue mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
-    {/* Overlay box */}
-    <div
-      className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md"
-    
-    ></div>
-    {/* Image on top of the overlay box */}
-    <img
-      src={pictureBlock.picture.mediaItemUrl}
-      alt="Block Image"
-      className="w-full relative"
-      style={{ zIndex: 0 }}
-    />
-     {/* Next Project Text */}
-   <div className="absolute w-full text-center z-10"> 
-      <p className="text-xs lg:text-3xl text-white">{nextprojecttext}</p>
-    </div>
-     <div className="text-center mt-10">
+          <div className="relative  bg-dark-kobolt-blue mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
+            {/* Overlay box */}
+            <div className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md"></div>
+            {/* Image on top of the overlay box */}
+            <img
+              src={pictureBlock.picture.mediaItemUrl}
+              alt="Block Image"
+              className="w-full relative"
+              style={{ zIndex: 0 }}
+            />
+            {/* Next Project Text */}
+            <div className="absolute w-full text-center z-10">
+              <p className="text-xs lg:text-3xl text-white">
+                {nextprojecttext}
+              </p>
+            </div>
+            <div className="text-center mt-10">
+              <a
+                href={replaceurl}
+                className="text-xl lg:text-3xl font-bold text-white inline-block my-4"
+                style={{ position: "relative", padding: "10px 40px 10px 25px" }}
+              >
+                {replacetext}
+                <span
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    fontSize: "larger",
+                  }}
+                >
+                  &rarr;
+                </span>
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Additional text that should not be covered */}
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-center mb-10 font-semibold relative z-10 mt-80">
+          {text}
+        </h2>
+
+        {/* Contact information and links */}
+        <div className="flex justify-center items-center space-x-2 mb-10 relative z-10">
           <a
-            href={replaceurl}
-            className="text-xl lg:text-3xl font-bold text-white inline-block my-4"
-            style={{ position: "relative", padding: "10px 40px 10px 25px" }}
+            href="mailto:contact@folio.design"
+            className="text-sm text-blue-500 hover:underline"
           >
-            {replacetext}
-            <span
-              style={{
-                position: "absolute",
-                right: "10px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                fontSize: "larger",
-              }}
-            >
-              &rarr;
-            </span>
+            CONTACT@FOLIO.DESIGN
+          </a>
+          <span>|</span>
+          <a
+            href="https://www.linkedin.com/company/folio"
+            className="mt-30 text-sm text-blue-500 hover:underline"
+          >
+            LINKEDIN.COM/FOLIO
           </a>
         </div>
-  </div>
-)}
 
-{/* Additional text that should not be covered */}
-<h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-center mb-10 font-semibold relative z-10 mt-80">{text}</h2>
-
-
-
-{/* Contact information and links */}
-<div className="flex justify-center items-center space-x-2 mb-10 relative z-10">
-  <a href="mailto:contact@folio.design" className="text-sm text-blue-500 hover:underline">
-    CONTACT@FOLIO.DESIGN
-  </a>
-  <span>|</span>
-  <a href="https://www.linkedin.com/company/folio" className="mt-30 text-sm text-blue-500 hover:underline">
-    LINKEDIN.COM/FOLIO
-  </a>
-</div>
-
-<Footer />
+        <Footer />
       </div>
     </>
   );
