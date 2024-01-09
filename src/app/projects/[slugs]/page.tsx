@@ -286,7 +286,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   <div className="relative mb-40 bg-dark-kobolt-blue mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
     {/* Overlay box */}
     <div
-      className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md mb-20"
+      className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md"
     
     ></div>
     {/* Image on top of the overlay box */}
@@ -324,15 +324,17 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
 )}
 
 {/* Additional text that should not be covered */}
-<h2 className="text-2xl text-center mb-10 font-semibold relative z-10">{text}</h2>
+<h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-center mb-10 font-semibold relative z-10 mt-80">{text}</h2>
+
+
 
 {/* Contact information and links */}
 <div className="flex justify-center items-center space-x-2 mb-10 relative z-10">
-  <a href="mailto:contact@folio.design" className="text-blue-500 hover:underline">
+  <a href="mailto:contact@folio.design" className="text-sm text-blue-500 hover:underline">
     CONTACT@FOLIO.DESIGN
   </a>
   <span>|</span>
-  <a href="https://www.linkedin.com/company/folio" className="text-blue-500 hover:underline">
+  <a href="https://www.linkedin.com/company/folio" className="mt-30 text-sm text-blue-500 hover:underline">
     LINKEDIN.COM/FOLIO
   </a>
 </div>
