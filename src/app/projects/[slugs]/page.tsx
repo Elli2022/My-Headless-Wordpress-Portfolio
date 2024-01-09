@@ -178,7 +178,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   // När data är hämtad, renderas sidan
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-24">
+      <div className="min-h-screen  white text-black p-24">
         <Navigation
           portfolioLink={mainLinks.portfolio}
           aboutLink={mainLinks.about}
@@ -218,7 +218,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             <div className="mb-6">
               <a
                 href={liveworkbuttontext}
-                className="btn inline-block"
+                className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5"
                 style={{ padding: "10px 40px 10px 25px", position: "relative" }}
               >
                 {liveworkbuttontext}
@@ -246,7 +246,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
 
           {keyFindingsBlock && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+              <div className="flex flex-col p-4 bg-white rounded-lg">
                 <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-xl font-semibold">
                   {keyFindingsBlock.basics}
                 </h2>
@@ -254,7 +254,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
                   {keyFindingsBlock.basicstext}
                 </p>
               </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+              <div className="flex flex-col p-4 bg-white rounded-lg">
                 <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
                   {keyFindingsBlock.goals}
                 </h2>
@@ -262,7 +262,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
                   {keyFindingsBlock.goalstext}
                 </p>
               </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+              <div className="flex flex-col p-4 bg-white rounded-lg">
                 <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
                   {keyFindingsBlock.problems}
                 </h2>
@@ -270,7 +270,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
                   {keyFindingsBlock.problemstext}
                 </p>
               </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg shadow">
+              <div className="flex flex-col p-4 bg-white rounded-lg">
                 <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
                   {keyFindingsBlock.solutions}
                 </h2>

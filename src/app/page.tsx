@@ -7,7 +7,6 @@ import getPosts from "@/pages/queries/getPosts";
 import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
 
-
 interface Post {
   id: string;
   title: string;
@@ -18,27 +17,43 @@ interface Post {
       slug: string;
     };
   };
-} 
+}
 
-
-
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   // Om 'page' och 'per_page' är arrays, använd första värdet. Annars, använd värdet direkt.
-  const page = Array.isArray(searchParams["page"]) ? searchParams["page"][0] : searchParams["page"] ?? "1";
-  const perPage = Array.isArray(searchParams["per_page"]) ? searchParams["per_page"][0] : searchParams["per_page"] ?? "6";
+  const page = Array.isArray(searchParams["page"])
+    ? searchParams["page"][0]
+    : searchParams["page"] ?? "1";
+  const perPage = Array.isArray(searchParams["per_page"])
+    ? searchParams["per_page"][0]
+    : searchParams["per_page"] ?? "6";
 
   // Hantera 'after' på samma sätt
-  const endCursor = Array.isArray(searchParams["after"]) ? searchParams["after"][0] : searchParams["after"] ?? "";
-  const beforeCursor = Array.isArray(searchParams["before"]) ? searchParams["before"][0] : searchParams["before"] ?? "";
-  const { posts, pageInfo } = await getPosts(Number(page), Number(perPage), endCursor, beforeCursor);
-  
+  const endCursor = Array.isArray(searchParams["after"])
+    ? searchParams["after"][0]
+    : searchParams["after"] ?? "";
+  const beforeCursor = Array.isArray(searchParams["before"])
+    ? searchParams["before"][0]
+    : searchParams["before"] ?? "";
+  const { posts, pageInfo } = await getPosts(
+    Number(page),
+    Number(perPage),
+    endCursor,
+    beforeCursor
+  );
 
   // Debugging: Log the posts array
   console.log("Posts:", posts);
 
-   // Debugging: Log the slug of each post
-   console.log("Post slugs:", posts.map((post: any) => post.slug));
-
+  // Debugging: Log the slug of each post
+  console.log(
+    "Post slugs:",
+    posts.map((post: any) => post.slug)
+  );
 
   // Hämtar data...
   const data = await getHome("/home");
@@ -50,10 +65,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
   const postsData = await getPosts();
   console.log("PostData:", postsData);
 
-  
-
   const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
-  console.log("Navhits: ", navHits)
+  console.log("Navhits: ", navHits);
 
   // Identifiera länkar för "Portfolio", "About", och "Contact"
   const mainLinks = {
@@ -68,37 +81,50 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
   );
 
   // Debugging: Log the slug of each post
-  console.log("Post slugs:", posts.map((post: any) => post.slug));
-
+  console.log(
+    "Post slugs:",
+    posts.map((post: any) => post.slug)
+  );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-24">
-   {/* Navigationsmenyn */}
-<nav className="nav-container">
-  {/* Vänster länk */}
-  <div className="nav-left">
-    {mainLinks.portfolio && (
-      <a key={mainLinks.portfolio.id} href={mainLinks.portfolio.uri} className="link">
-        {mainLinks.portfolio.title}
-      </a>
-    )}
-  </div>
+    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-24">
+      {/* Navigationsmenyn */}
+      <nav className="flex justify-between items-center">
+        {/* Vänster länk */}
+        <div className="nav-left font-bold">
+          {mainLinks.portfolio && (
+            <a
+              key={mainLinks.portfolio.id}
+              href={mainLinks.portfolio.uri}
+              className="link"
+            >
+              {mainLinks.portfolio.title}
+            </a>
+          )}
+        </div>
 
-  {/* Höger länkar */}
-  <div className="nav-right">
-    {mainLinks.about && (
-      <a key={mainLinks.about.id} href={mainLinks.about.uri} className="link">
-        {mainLinks.about.title}
-      </a>
-    )}
-    {mainLinks.contact && (
-      <a key={mainLinks.contact.id} href={mainLinks.contact.uri} className="link">
-        {mainLinks.contact.title}
-      </a>
-    )}
-  </div>
-</nav>
-
+        {/* Höger länkar */}
+        <div className="nav-right flex">
+          {mainLinks.about && (
+            <a
+              key={mainLinks.about.id}
+              href={mainLinks.about.uri}
+              className="font-bold no-underline text-base ml-2.5"
+            >
+              {mainLinks.about.title}
+            </a>
+          )}
+          {mainLinks.contact && (
+            <a
+              key={mainLinks.contact.id}
+              href={mainLinks.contact.uri}
+              className="font-bold no-underline text-base ml-2.5"
+            >
+              {mainLinks.contact.title}
+            </a>
+          )}
+        </div>
+      </nav>
 
       {/* Header-sektionen */}
       <header className="text-center mt-10">
@@ -116,7 +142,10 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
 
       {/* "Explore Works"-knappen och andra länkar */}
       <div className="text-center mt-10">
-        <a href={data?.homePage.buttonUrl} className="btn inline-block my-4">
+        <a
+          href={data?.homePage.buttonUrl}
+          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5"
+        >
           {data?.homePage.buttonText}
         </a>
         <div className="other-links-container">
@@ -124,7 +153,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
             <a
               key={link.id}
               href={link.uri}
-              className="link inline-block mx-2 my-2"
+              className="link inline-block mx-2 my-2 font-bold"
             >
               {link.title}
             </a>
@@ -132,36 +161,35 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         </div>
       </div>
 
-    
-{/* Inläggen */}
-     {/* Posts Container */}
-     <div className="grid grid-cols-3 gap-4 mb-16">
-  {posts.map((post: any) => (
-    <div key={post.id} className="w-full pb-[100%] relative mb-16">
-      <Link href={`/projects/${post.slug}`}>
-        <img
-          src={post.featuredImage.node.mediaItemUrl}
-          alt={post.title}
-          className="absolute w-full h-full object-cover"
-        />
-            <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
-          <h2 className="text-lg font-bold text-center">{post.title}</h2>
-          <p>{post.PostInfo.subtitle}</p>
-        </div>
-      </Link>
-    </div>
-  ))}
-</div>
+      {/* Inläggen */}
+      {/* Posts Container */}
+      <div className="grid grid-cols-3 gap-4 mb-16">
+        {posts.map((post: any) => (
+          <div key={post.id} className="w-full pb-[100%] relative mb-16">
+            <Link href={`/projects/${post.slug}`}>
+              <img
+                src={post.featuredImage.node.mediaItemUrl}
+                alt={post.title}
+                className="absolute w-full h-full object-cover"
+              />
+              <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
+                <h2 className="text-lg font-bold text-center">{post.title}</h2>
+                <p>{post.PostInfo.subtitle}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
 
- 
-
-
-        <PaginationControls 
+      <PaginationControls
         hasNextPage={pageInfo.hasNextPage}
         hasPrevPage={Number(page) > 1}
         endCursor={pageInfo.endCursor}
-        startCursor={pageInfo.startCursor} data={undefined} beforeCursor={""} posts={""}  // andra props vid behov
-/>
+        startCursor={pageInfo.startCursor}
+        data={undefined}
+        beforeCursor={""}
+        posts={""} // andra props vid behov
+      />
 
       {/* Freelance-projektsektionen */}
       <div className="mt-4 text-center">
@@ -173,13 +201,11 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         </h3>
         <a
           href={data?.homePage.freelanceProjects.freelanceContactUrl}
-          className="btn bg-[var(--primary-color)] hover:bg-[var(--hover-color)] mt-4"
-        >
+          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5">
           {data?.homePage.freelanceProjects.freelanceProjectsButton}
         </a>
       </div>
       <Footer />
-      
     </main>
   );
 }

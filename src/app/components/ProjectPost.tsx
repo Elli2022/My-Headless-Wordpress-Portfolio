@@ -24,7 +24,7 @@ const ProjectPost = ({ postData }: ProjectPostProps) => {
   const { title, content, featuredImage } = postData;
 
   return (
-    <div className="p-4 border border-gray-200 rounded shadow-sm">
+    <div className=" shadow-sm">
       {featuredImage?.node?.mediaItemUrl && (
         <img
           src={featuredImage.node.mediaItemUrl}
