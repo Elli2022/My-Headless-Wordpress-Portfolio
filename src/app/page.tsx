@@ -6,6 +6,8 @@ import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
 import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
+import getCategories from "@/pages/queries/getCategories";
+import FilterCategory from "./components/FilterCategory";
 
 interface Post {
   id: string;
@@ -44,7 +46,11 @@ export default async function Home({
     Number(perPage),
     endCursor,
     beforeCursor
+
+    
   );
+
+
 
   // Debugging: Log the posts array
   console.log("Posts:", posts);
@@ -68,6 +74,9 @@ export default async function Home({
   const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
   console.log("Navhits: ", navHits);
 
+ const categories = await getCategories();
+  console.log("Categories: ", categories);
+
   // Identifiera länkar för "Portfolio", "About", och "Contact"
   const mainLinks = {
     portfolio: navHits.find((hit: any) => hit.title === "Portfolio."),
@@ -85,6 +94,9 @@ export default async function Home({
     "Post slugs:",
     posts.map((post: any) => post.slug)
   );
+
+  
+  
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-15">
@@ -161,6 +173,7 @@ export default async function Home({
         </div>
       </div>
 
+      <FilterCategory categories={categories} />
       {/* Inläggen */}
       {/* Posts Container */}
       <div className="grid grid-cols-3 gap-4 mb-16">
