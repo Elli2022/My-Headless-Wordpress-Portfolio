@@ -5,7 +5,8 @@ export default async function getPosts(
   page = 1,
   perPage = 6,
   afterCursor = "",
-  beforeCursor = ""
+  beforeCursor = "",
+  categoryId= "",
 ) {
   try {
     let queryArgs = {};
@@ -52,7 +53,8 @@ export default async function getPosts(
             hasPreviousPage
           }
         }
-      }`,
+      }
+      `,
       queryArgs
     );
 

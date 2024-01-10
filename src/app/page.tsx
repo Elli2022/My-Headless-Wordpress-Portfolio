@@ -1,24 +1,42 @@
 // src/app/page.tsx
 import React from "react";
 import Link from "next/link";
+import { GetServerSideProps } from 'next';
+import PaginationControls from "./components/PaginationControls";
+import Footer from "./components/Footer";
+import FilterCategory from "./components/FilterCategory";
+
+// Här antar vi att dina queries returnerar rätt format.
 import getHome from "@/pages/queries/getHome";
 import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
-import PaginationControls from "./components/PaginationControls";
-import Footer from "./components/Footer";
 import getCategories from "@/pages/queries/getCategories";
-import FilterCategory from "./components/FilterCategory";
+
 
 interface Post {
   id: string;
   title: string;
   content: string;
+  category: string;
   featuredImage?: {
     node: {
       mediaItemUrl: string;
       slug: string;
     };
   };
+}
+
+interface Category {
+  databaseId: number;
+  name: string;
+}
+
+interface HomeProps {
+  posts: Post[];
+  categories: Category[];
+  data: any; // Ersätt 'any' med en lämplig typ för din data
+  mainLinks: { [key: string]: any }; // Ersätt 'any' med en lämplig typ
+  otherLinks: any[]; // Ersätt 'any' med en lämplig typ
 }
 
 export default async function Home({
@@ -74,8 +92,7 @@ export default async function Home({
   const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
   console.log("Navhits: ", navHits);
 
- const categories = await getCategories();
-  console.log("Categories: ", categories);
+ 
 
   // Identifiera länkar för "Portfolio", "About", och "Contact"
   const mainLinks = {
@@ -95,8 +112,25 @@ export default async function Home({
     posts.map((post: any) => post.slug)
   );
 
-  
-  
+  // Hämta kategorier och inlägg
+  const categories = await getCategories();
+console.log("Categories: ", categories);
+
+// Konvertera categoryId till en sträng om det inte redan är det
+const categoryId = searchParams.categoryId?.toString(); 
+let filteredPosts = posts;
+console.log("Current categoryId:", categoryId);
+
+if (categoryId) {
+  filteredPosts = posts.filter((post: { category: any; }) => {
+    // Här antar vi att post.category är kategoriens namn.
+    // Om det inte stämmer, behöver detta justeras.
+    return post.category === categories.find((category: { databaseId: { toString: () => string; }; }) => category.databaseId.toString() === categoryId)?.name;
+  });
+}
+console.log("Ett exempel på inlägg:", posts[0]);
+console.log("Alla inlägg som stämmer in på kategorin:", posts);
+
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-15">
@@ -177,7 +211,7 @@ export default async function Home({
       {/* Inläggen */}
       {/* Posts Container */}
       <div className="grid grid-cols-3 gap-4 mb-16">
-        {posts.map((post: any) => (
+        {filteredPosts.map((post: any) => (
           <div key={post.id} className="w-full pb-[100%] relative mb-16">
             <Link href={`/projects/${post.slug}`}>
               <img

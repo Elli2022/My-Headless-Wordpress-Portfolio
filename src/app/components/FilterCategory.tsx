@@ -1,10 +1,11 @@
 "use client"
 import React from 'react';
-import { useRouter } from 'next/navigation'; // Korrigera importen här
+import { useRouter } from 'next/navigation';
 
 interface Category {
-  databaseId: number;
-  name: string;
+  databaseId: any;
+  name: any;
+  
 }
 
 interface FilterCategoryProps {
@@ -14,8 +15,9 @@ interface FilterCategoryProps {
 const FilterCategory: React.FC<FilterCategoryProps> = ({ categories }) => {
   const router = useRouter();
 
-  const handleCategoryClick = (name: string) => {
-    router.push(`/?categoryId=${name}`);
+  const handleCategoryClick = (categoryId:number) => {
+    // Uppdatera URL'en med den valda kategorin
+    router.push(`/?categoryId=${categoryId}`);
   };
 
   return (
@@ -23,7 +25,7 @@ const FilterCategory: React.FC<FilterCategoryProps> = ({ categories }) => {
       {categories.map(category => (
         <button
           key={category.name}
-          onClick={() => handleCategoryClick(category.name)}
+          onClick={() => handleCategoryClick(category.databaseId)}
         >
           {category.name}
         </button>
