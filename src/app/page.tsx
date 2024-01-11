@@ -133,20 +133,21 @@ export default async function Home({
                 <img
                   src={post.featuredImage.node.mediaItemUrl}
                   alt={post.title}
-                  className="absolute w-full h-full object-cover mb-40 mb-[-5rem]" 
+                  className="absolute w-full h-full object-cover mb-40 mb-[-5rem]"
                 />
                 <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
-                  <p className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">{post.PostInfo.subtitle}</p>
-                  <h2 className="text-lg font text-center">
-                    {post.title}
-                  </h2>
+                  <p className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">
+                    {post.PostInfo.subtitle}
+                  </p>
+                  <h2 className="text-lg font text-center">{post.title}</h2>
                 </div>
               </Link>
             </div>
           ))
         ) : (
-          <div className="flex justify-center items-center min-h-screen">
-            <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase mx-auto">
+          // Meddelande om inga inlägg - centreras på skärmen
+          <div className="flex justify-center items-center h-full">
+            <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase">
               Inga inlägg hittades under den valda kategorin.
             </p>
           </div>
