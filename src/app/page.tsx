@@ -4,12 +4,10 @@ import Link from "next/link";
 import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
 import FilterCategory from "./components/FilterCategory";
+import FreelanceSection from "./components/FreelanceSection";
 import getHome from "@/pages/queries/getHome";
 import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
-
-
-
 
 interface Post {
   id: string;
@@ -22,7 +20,7 @@ interface Post {
       slug: string;
     };
   };
-  slug?: string; 
+  slug?: string;
   PostInfo?: {
     subtitle: string;
   };
@@ -35,14 +33,6 @@ interface Category {
   id: string;
 }
 
-interface HomeProps {
-  posts: Post[];
-  categories: Category[];
-  data: any; // Ersätt 'any' med en lämplig typ för din data
-  mainLinks: { [key: string]: any }; // Ersätt 'any' med en lämplig typ
-  otherLinks: any[]; // Ersätt 'any' med en lämplig typ
-  filteredPosts: any;
-}
 
 export default async function Home({
   searchParams,
@@ -64,26 +54,22 @@ export default async function Home({
   const beforeCursor = Array.isArray(searchParams["before"])
     ? searchParams["before"][0]
     : searchParams["before"] ?? "";
-    // Hämta kategori-ID från searchParams
+  // Hämta kategori-ID från searchParams
   const categoryId = Array.isArray(searchParams["categoryId"])
-  ? searchParams["categoryId"][0]
-  : searchParams["categoryId"];
+    ? searchParams["categoryId"][0]
+    : searchParams["categoryId"];
 
-  const name =  Array.isArray(searchParams["name"])
-  ? searchParams["name"][0]
-  : searchParams["name"] ?? "";
+  const name = Array.isArray(searchParams["name"])
+    ? searchParams["name"][0]
+    : searchParams["name"] ?? "";
 
   const { posts, categories, pageInfo } = await getPosts(
     Number(searchParams["page"]) || 1,
     Number(searchParams["per_page"]) || 6,
     searchParams["after"] as string,
     searchParams["before"] as string,
-    categoryId,
-  
-    
+    categoryId
   );
-
-
 
   // Debugging: Log the posts array
   // console.log("Posts:", posts);
@@ -95,7 +81,7 @@ export default async function Home({
   );
 
   console.log("Posts from API:", posts);
-console.log("Categories from API:", categories);
+  console.log("Categories from API:", categories);
   // Hämtar data...
   const data = await getHome("/home");
   // console.log("Home data:", data);
@@ -109,8 +95,6 @@ console.log("Categories from API:", categories);
   const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
   // console.log("Navhits: ", navHits);
 
- 
-
   // Identifiera länkar för "Portfolio", "About", och "Contact"
   const mainLinks = {
     portfolio: navHits.find((hit: any) => hit.title === "Portfolio."),
@@ -118,33 +102,37 @@ console.log("Categories from API:", categories);
     contact: navHits.find((hit: any) => hit.title === "contact."),
   };
 
-
   // Debugging: Log the slug of each post
   console.log(
     "Post slugs:",
     posts.map((post: any) => post.slug)
   );
 
+  console.log("Categories: ", categories);
 
-console.log("Categories: ", categories);
+  // Hämta kategori-ID från searchParams
+  console.log("CategoryId:", categoryId);
 
-// Hämta kategori-ID från searchParams
-console.log("CategoryId:", categoryId);
-
-
-// Filtrera inlägg baserat på kategori
-let filteredPosts = posts;
-if (categoryId) {
-  const categoryMatch = categories.find((category: { databaseId: any; }) => category.databaseId === categoryId);
-  if (categoryMatch) {
-    // Antag att varje post har ett fält 'categoryDatabaseId'
-    filteredPosts = posts.filter((post: { categoryDatabaseId: any; }) => post.categoryDatabaseId === categoryId);
+  // Filtrera inlägg baserat på kategori
+  let filteredPosts = posts;
+  if (categoryId) {
+    const categoryMatch = categories.find(
+      (category: { databaseId: any }) => category.databaseId === categoryId
+    );
+    if (categoryMatch) {
+      // Antag att varje post har ett fält 'categoryDatabaseId'
+      filteredPosts = posts.filter(
+        (post: { categoryDatabaseId: any }) =>
+          post.categoryDatabaseId === categoryId
+      );
+    }
   }
-}
 
-console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
-  console.log(`Number of Posts matching Category ID ${categoryId}:`, filteredPosts.length);
-
+  console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
+  console.log(
+    `Number of Posts matching Category ID ${categoryId}:`,
+    filteredPosts.length
+  );
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-15">
@@ -210,12 +198,10 @@ console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
         </a>
       </div>
 
-
       <FilterCategory categories={categories} />
       {/* Inläggen */}
       {/* Posts Container */}
       <div className="grid grid-cols-3 gap-4 mb-16">
-        
         {filteredPosts.map((post: any) => (
           <div key={post.id} className="w-full pb-[100%] relative mb-16">
             <Link href={`/projects/${post.slug}`}>
@@ -240,25 +226,21 @@ console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
         startCursor={pageInfo.startCursor}
         data={undefined}
         beforeCursor={""}
-        posts={""} 
+        posts={""}
       />
 
-      {/* Freelance-projektsektionen */}
-      <div className="mt-4 text-center">
-        <p className="text-xs font-semibold">
-          {data?.homePage.freelanceProjects.freelanceTitle}
-        </p>
-        <br />
-        <h3 className="text-4xl font-semibold">
-          {data?.homePage.freelanceProjects.freelanceDescription}
-        </h3>
-        
-        <a
-          href={data?.homePage.freelanceProjects.freelanceContactUrl}
-          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5">
-          {data?.homePage.freelanceProjects.freelanceProjectsButton}
-        </a>
-      </div>
+      <FreelanceSection
+        freelanceTitle={data?.homePage.freelanceProjects.freelanceTitle}
+        freelanceDescription={
+          data?.homePage.freelanceProjects.freelanceDescription
+        }
+        freelanceContactUrl={
+          data?.homePage.freelanceProjects.freelanceContactUrl
+        }
+        freelanceProjectsButton={
+          data?.homePage.freelanceProjects.freelanceProjectsButton
+        }
+      />
       <Footer />
     </main>
   );
