@@ -21,7 +21,7 @@ export default async function Home({
   const perPage = Array.isArray(searchParams["per_page"])
     ? searchParams["per_page"][0]
     : searchParams["per_page"] ?? "6";
-    
+
   // Hantering av kategori-ID från sökparametrar.
   const categoryId = Array.isArray(searchParams["categoryId"])
     ? searchParams["categoryId"][0]
@@ -145,11 +145,12 @@ export default async function Home({
             </div>
           ))
         ) : (
-          <div className="flex justify-center items-center w-full h-screen">
-            <p className="text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase">
-              Inga inlägg hittades under den valda kategorin.
-            </p>
-          </div>
+          <div className="flex justify-center items-center min-h-screen">
+  <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase mx-auto">
+    Inga inlägg hittades under den valda kategorin.
+  </p>
+</div>
+
         )}
       </div>
 
