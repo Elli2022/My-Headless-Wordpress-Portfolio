@@ -146,11 +146,10 @@ export default async function Home({
           ))
         ) : (
           <div className="flex justify-center items-center min-h-screen">
-  <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase mx-auto">
-    Inga inlägg hittades under den valda kategorin.
-  </p>
-</div>
-
+            <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase mx-auto">
+              Inga inlägg hittades under den valda kategorin.
+            </p>
+          </div>
         )}
       </div>
 
