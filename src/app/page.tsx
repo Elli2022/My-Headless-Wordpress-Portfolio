@@ -117,9 +117,13 @@ export default async function Home({
             </div>
           ))
         ) : (
-          <div className="text-center w-full">
-            <p>Inga inlägg hittades under den valda kategorin.</p>
-          </div>
+          <div className="flex justify-center items-center w-full h-screen text-center">
+          <p className="py-3 px-10 md:py-4 md:px-12 lg:py-5 lg:px-16 text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-black font-bold uppercase rounded-full cursor-pointer no-underline transition-colors duration-300 ease inline-block">
+            Inga inlägg hittades under den valda kategorin.
+          </p>
+        </div>
+        
+        
         )}
       </div>
 
