@@ -69,12 +69,18 @@ export default async function Home({
   ? searchParams["categoryId"][0]
   : searchParams["categoryId"];
 
+  const name =  Array.isArray(searchParams["name"])
+  ? searchParams["name"][0]
+  : searchParams["name"] ?? "";
+
   const { posts, categories, pageInfo } = await getPosts(
     Number(searchParams["page"]) || 1,
     Number(searchParams["per_page"]) || 6,
     searchParams["after"] as string,
     searchParams["before"] as string,
-    categoryId  
+    categoryId,
+  
+    
   );
 
 
@@ -112,10 +118,6 @@ console.log("Categories from API:", categories);
     contact: navHits.find((hit: any) => hit.title === "contact."),
   };
 
-  // Filtrera ut dessa specifika länkar så att de inte renderas igen senare
-  const otherLinks = navHits.filter(
-    (hit: any) => !["Portfolio.", "about me.", "contact."].includes(hit.title)
-  );
 
   // Debugging: Log the slug of each post
   console.log(
@@ -128,6 +130,7 @@ console.log("Categories: ", categories);
 
 // Hämta kategori-ID från searchParams
 console.log("CategoryId:", categoryId);
+
 
 // Filtrera inlägg baserat på kategori
 let filteredPosts = posts;
@@ -205,17 +208,6 @@ console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
         >
           {data?.homePage.buttonText}
         </a>
-        <div className="other-links-container">
-          {otherLinks.map((link: any) => (
-            <a
-              key={link.id}
-              href={link.uri}
-              className="link inline-block mx-2 my-2 font-bold mb-10"
-            >
-              {link.title}
-            </a>
-          ))}
-        </div>
       </div>
 
 
