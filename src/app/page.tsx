@@ -65,7 +65,7 @@ export default async function Home({
 
   // Huvudrenderingslogik.
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-4 md:p-15">
+    <main className="min-h-screen bg-gradient-to-b text-black p-4 md:p-15">
       {/* Navigationsmeny */}
       <nav className="flex justify-between items-center">
         {/* Vänster navigationslänk */}

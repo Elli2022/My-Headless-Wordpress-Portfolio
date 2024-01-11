@@ -29,18 +29,18 @@ const FilterCategory: React.FC<FilterCategoryProps> = ({ categories }) => {
 
   // Renderar knappar för varje kategori
   return (
-    <div>
-  {categories.map((category) => (
-    // Skapar en knapp för varje kategori och definierar en unik nyckel och en händelsehanterare
-    <button
-      key={category.databaseId}
-      onClick={() => handleCategoryClick(category.databaseId)}
-      className="mb-2 font-bold text-base md:text-lg lg:text-xl text-center text-black px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-    >
-      {category.name}
-    </button>
-  ))}
-</div>
+    <div className="flex flex-wrap justify-center gap-2">
+      {categories.map((category) => (
+        <button
+          key={category.databaseId}
+          onClick={() => handleCategoryClick(category.databaseId)}
+          // Responsiva Tailwind-klasser för att justera storlek och padding
+          className="mb-2 font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl px-4 py-2 text-center text-black bg-transparent rounded-md focus:outline-none focus:ring focus:ring-blue-300 hover:bg-blue-100"
+        >
+          {category.name}
+        </button>
+      ))}
+    </div>
 
   );
 };
