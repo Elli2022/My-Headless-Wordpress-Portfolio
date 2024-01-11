@@ -1,16 +1,14 @@
 // src/app/page.tsx
 import React from "react";
 import Link from "next/link";
-import { GetServerSideProps } from 'next';
 import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
 import FilterCategory from "./components/FilterCategory";
-
-// Här antar vi att dina queries returnerar rätt format.
 import getHome from "@/pages/queries/getHome";
 import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
-import getCategories from "@/pages/queries/getCategories";
+
+
 
 
 interface Post {
@@ -24,11 +22,17 @@ interface Post {
       slug: string;
     };
   };
+  slug?: string; 
+  PostInfo?: {
+    subtitle: string;
+  };
+  categories: any;
 }
 
 interface Category {
   databaseId: number;
   name: string;
+  id: string;
 }
 
 interface HomeProps {
@@ -37,6 +41,7 @@ interface HomeProps {
   data: any; // Ersätt 'any' med en lämplig typ för din data
   mainLinks: { [key: string]: any }; // Ersätt 'any' med en lämplig typ
   otherLinks: any[]; // Ersätt 'any' med en lämplig typ
+  filteredPosts: any;
 }
 
 export default async function Home({
@@ -59,19 +64,23 @@ export default async function Home({
   const beforeCursor = Array.isArray(searchParams["before"])
     ? searchParams["before"][0]
     : searchParams["before"] ?? "";
-  const { posts, pageInfo } = await getPosts(
-    Number(page),
-    Number(perPage),
-    endCursor,
-    beforeCursor
+    // Hämta kategori-ID från searchParams
+  const categoryId = Array.isArray(searchParams["categoryId"])
+  ? searchParams["categoryId"][0]
+  : searchParams["categoryId"];
 
-    
+  const { posts, categories, pageInfo } = await getPosts(
+    Number(searchParams["page"]) || 1,
+    Number(searchParams["per_page"]) || 6,
+    searchParams["after"] as string,
+    searchParams["before"] as string,
+    categoryId  
   );
 
 
 
   // Debugging: Log the posts array
-  console.log("Posts:", posts);
+  // console.log("Posts:", posts);
 
   // Debugging: Log the slug of each post
   console.log(
@@ -79,18 +88,20 @@ export default async function Home({
     posts.map((post: any) => post.slug)
   );
 
+  console.log("Posts from API:", posts);
+console.log("Categories from API:", categories);
   // Hämtar data...
   const data = await getHome("/home");
-  console.log("Home data:", data);
+  // console.log("Home data:", data);
 
   const navlinks = await getPages();
-  console.log("Navigation links:", navlinks);
+  // console.log("Navigation links:", navlinks);
 
   const postsData = await getPosts();
   console.log("PostData:", postsData);
 
   const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
-  console.log("Navhits: ", navHits);
+  // console.log("Navhits: ", navHits);
 
  
 
@@ -112,24 +123,24 @@ export default async function Home({
     posts.map((post: any) => post.slug)
   );
 
-  // Hämta kategorier och inlägg
-  const categories = await getCategories();
+
 console.log("Categories: ", categories);
 
-// Konvertera categoryId till en sträng om det inte redan är det
-const categoryId = searchParams.categoryId?.toString(); 
-let filteredPosts = posts;
-console.log("Current categoryId:", categoryId);
+// Hämta kategori-ID från searchParams
+console.log("CategoryId:", categoryId);
 
+// Filtrera inlägg baserat på kategori
+let filteredPosts = posts;
 if (categoryId) {
-  filteredPosts = posts.filter((post: { category: any; }) => {
-    // Här antar vi att post.category är kategoriens namn.
-    // Om det inte stämmer, behöver detta justeras.
-    return post.category === categories.find((category: { databaseId: { toString: () => string; }; }) => category.databaseId.toString() === categoryId)?.name;
-  });
+  const categoryMatch = categories.find((category: { databaseId: any; }) => category.databaseId === categoryId);
+  if (categoryMatch) {
+    // Antag att varje post har ett fält 'categoryDatabaseId'
+    filteredPosts = posts.filter((post: { categoryDatabaseId: any; }) => post.categoryDatabaseId === categoryId);
+  }
 }
-console.log("Ett exempel på inlägg:", posts[0]);
-console.log("Alla inlägg som stämmer in på kategorin:", posts);
+
+console.log(`Filtered Posts for Category ID ${categoryId}:`, filteredPosts);
+  console.log(`Number of Posts matching Category ID ${categoryId}:`, filteredPosts.length);
 
 
   return (
@@ -207,10 +218,12 @@ console.log("Alla inlägg som stämmer in på kategorin:", posts);
         </div>
       </div>
 
+
       <FilterCategory categories={categories} />
       {/* Inläggen */}
       {/* Posts Container */}
       <div className="grid grid-cols-3 gap-4 mb-16">
+        
         {filteredPosts.map((post: any) => (
           <div key={post.id} className="w-full pb-[100%] relative mb-16">
             <Link href={`/projects/${post.slug}`}>

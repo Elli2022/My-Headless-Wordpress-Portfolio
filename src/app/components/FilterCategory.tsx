@@ -1,37 +1,41 @@
+//src/app/components/FilterCategory.tsx
 "use client"
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
 interface Category {
-  databaseId: any;
-  name: any;
+  databaseId: number;
+  name: string;
   
 }
 
 interface FilterCategoryProps {
-  categories: Category[];
+  categories: Category[]; 
 }
 
+
+
 const FilterCategory: React.FC<FilterCategoryProps> = ({ categories }) => {
-  const router = useRouter();
-
-  const handleCategoryClick = (categoryId:number) => {
-    // Uppdatera URL'en med den valda kategorin
-    router.push(`/?categoryId=${categoryId}`);
+    const router = useRouter();
+  
+    const handleCategoryClick = (databaseId: number) => {
+      // Uppdatera URL'en med det valda databaseId
+      router.push(`/?categoryId=${databaseId}`);
+    };
+  
+    return (
+      <div>
+        {categories.map(category => (
+          <button
+            key={category.databaseId}
+            onClick={() => handleCategoryClick(category.databaseId)}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+    );
   };
-
-  return (
-    <div>
-      {categories.map(category => (
-        <button
-          key={category.name}
-          onClick={() => handleCategoryClick(category.databaseId)}
-        >
-          {category.name}
-        </button>
-      ))}
-    </div>
-  );
-};
+  
 
 export default FilterCategory;
