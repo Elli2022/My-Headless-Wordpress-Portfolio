@@ -1,5 +1,6 @@
 // components/Navigation.tsx
 import React from "react";
+import Link from "next/link";
 
 interface NavLink {
   id: string;
@@ -32,12 +33,12 @@ const Navigation: React.FC<NavigationProps> = ({
         <a key={aboutLink.id} href={aboutLink.uri}>
           {aboutLink.title}
         </a>
-        <a
+        <Link
           href={contactLink.uri}
           className="font-bold no-underline text-base ml-5 md:ml-4 hover:text-primary"
         >
           {contactLink.title}
-        </a>
+        </Link>
       </div>
     </nav>
   );

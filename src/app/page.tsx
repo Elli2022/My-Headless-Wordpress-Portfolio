@@ -128,18 +128,18 @@ export default async function Home({
         {/* Konditionell rendering av inlägg eller ett meddelande om inga inlägg finns */}
         {hasPosts ? (
           filteredPosts.map((post: any) => (
-            <div key={post.id} className="w-full pb-[100%] relative mb-16">
+            <div key={post.id} className="w-full pb-[100%] relative mb-20">
               <Link href={`/projects/${post.slug}`}>
                 <img
                   src={post.featuredImage.node.mediaItemUrl}
                   alt={post.title}
-                  className="absolute w-full h-full object-cover mb-40"
+                  className="absolute w-full h-full object-cover mb-40 mb-[-5rem]" 
                 />
                 <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
-                  <h2 className="text-lg font-bold text-center">
+                  <p className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">{post.PostInfo.subtitle}</p>
+                  <h2 className="text-lg font text-center">
                     {post.title}
                   </h2>
-                  <p>{post.PostInfo.subtitle}</p>
                 </div>
               </Link>
             </div>
