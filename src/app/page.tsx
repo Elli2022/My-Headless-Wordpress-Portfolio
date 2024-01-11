@@ -4,6 +4,7 @@ import PaginationControls from "./components/PaginationControls";
 import Footer from "./components/Footer";
 import FilterCategory from "./components/FilterCategory";
 import FreelanceSection from "./components/FreelanceSection";
+import Header from "./components/Header";
 import getHome from "@/pages/queries/getHome";
 import getPages from "@/pages/queries/getPages";
 import getPosts from "@/pages/queries/getPosts";
@@ -86,13 +87,10 @@ export default async function Home({
         </div>
       </nav>
 
-      {/* Header-sektion */}
-      <header className="text-center mt-40">
-        <p className="mt-4">{data?.homePage.presentingText}</p>
-        {/* Dynamiskt renderad titel */}
-        <h1 className="text-5xl font-bold" dangerouslySetInnerHTML={{ __html: data?.homePage.homePageTitle.replace("fueled", "fueled<br>") }}></h1>
-      </header>
-
+      <Header 
+        titleHtml={data?.homePage.homePageTitle.replace("fueled", "fueled<br>")}
+        presentingText={data?.homePage.presentingText}
+      />
       {/* Knapp och länkar för utforskning */}
       <div className="text-center mt-7">
         <a href={data?.homePage.buttonUrl} className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5 mb-40">
