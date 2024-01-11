@@ -1,29 +1,29 @@
-//src/pages/queries/getAll.tsx
-import WP from "../api/wp";
+// //src/pages/queries/getAll.tsx
+// import WP from "../api/wp";
 
-export default async function getAll(uri:string){
-    try {
-        const res = await WP(`
-        query getAll {
-            page(id: "/all", idType: URI) {
-              content
-              id
-              allPage {
-                allPageTitle
-                fieldGroupName
-                orkarInteMer
-              }
-            }
-          }
+// export default async function getAll(uri:string){
+//     try {
+//         const res = await WP(`
+//         query getAll {
+//             page(id: "/all", idType: URI) {
+//               content
+//               id
+//               allPage {
+//                 allPageTitle
+//                 fieldGroupName
+//                 orkarInteMer
+//               }
+//             }
+//           }
           
-        `, {uri})
+//         `, {uri})
 
-        if(!res?.data){
-            throw `error couldn't fetch api`;
-        }
-        const data = res?.data?.page
-        return data
-    } catch (error) {
-        console.error(error)
-    }
-}
+//         if(!res?.data){
+//             throw `error couldn't fetch api`;
+//         }
+//         const data = res?.data?.page
+//         return data
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
