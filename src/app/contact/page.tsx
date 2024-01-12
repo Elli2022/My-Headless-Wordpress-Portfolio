@@ -1,9 +1,16 @@
 // src/pages/contact.tsx
+"use client"
+
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Modal from "../components/Modal";
+
+
 
 const ContactPage = () => {
   return (
+    <Modal>
 <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center">
       <div className="container mx-auto px-4">
         <div className="text-left py-5">
@@ -16,7 +23,7 @@ const ContactPage = () => {
           <div className="flex-1 max-w-md">
             <div className="text-center mb-10">
               <h1 className="text-4xl font-bold mb-4 text-left">Contact now</h1>
-              <p>
+              <p className="mb-4 text-left">
                 Have a project or question? Send me a message. I will reply within 48 hours.
               </p>
             </div>
@@ -60,10 +67,10 @@ const ContactPage = () => {
             <div className="bg-white text-gray-900 p-10 rounded-lg shadow-xl">
               <div className="text-center">
                 <p className="mb-2">
-                  Email me at <a href="mailto:my@gmail.com" className="text-indigo-600 hover:text-indigo-800">my@gmail.com</a>
+                  Email me at <a href="mailto:my@gmail.com" className="text-[#1E415B] font-bold">my@gmail.com</a>
                 </p>
                 <p>
-                  Call me at <a href="tel:+1-402-4983" className="text-indigo-600 hover:text-indigo-800">+1-402-4983</a>
+                  Call me at <a href="tel:+1-402-4983" className="text-[#1E415B] font-bold">+1-402-4983</a>
                 </p>
               </div>
             </div>
@@ -71,6 +78,7 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+    </Modal>
   );
 };
 
