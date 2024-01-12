@@ -280,9 +280,9 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
         </div>
 
         {pictureBlock && (
-          <div className="relative  bg-dark-kobolt-blue mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
+          <div className="relative mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
             {/* Overlay box */}
-            <div className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#034753] shadow-md"></div>
+            <div className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#1E415B] shadow-md"></div>
             {/* Image on top of the overlay box */}
             <img
               src={pictureBlock.picture.mediaItemUrl}

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col justify-center">
+<div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center">
       <div className="container mx-auto px-4">
         <div className="text-left py-5">
           <Link href="/home" className="text-white font-bold text-l">
@@ -21,6 +21,7 @@ const ContactPage = () => {
               </p>
             </div>
 
+          {/* Kontaktformulär*/}
             <form className="space-y-6">
               <div>
               <label htmlFor="name" className="block text-sm ">
@@ -46,8 +47,8 @@ const ContactPage = () => {
                 </label>
                 <textarea id="message" rows="4" className="w-full bg-transparent border-grey border-b border-gray-600 focus:ring-0 text-white"></textarea>
               </div>
-              <div className="flex justify-center">
-                <button type="submit" className="mt-4 px-6 py-2 border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 font-bold uppercase tracking-wide">
+              <div className="flex justify-center mb-4 md:mb-6">
+                <button type="submit" className="py-2 px-8 md:py-2.5 md:px-10 lg:py-3 lg:px-12 text-xs md:text-sm lg:text-base bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline transition-colors duration-300 ease inline-block mt-5">
                   Send
                 </button>
               </div>
@@ -55,7 +56,7 @@ const ContactPage = () => {
           </div>
 
           {/* Vit container för kontaktinformation */}
-          <div className="flex-1 max-w-md">
+          <div className=" max-w-md mt-auto mb-auto">
             <div className="bg-white text-gray-900 p-10 rounded-lg shadow-xl">
               <div className="text-center">
                 <p className="mb-2">
