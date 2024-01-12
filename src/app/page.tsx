@@ -1,13 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import PaginationControls from "./components/PaginationControls";
-import Footer from "./components/Footer";
 import FilterCategory from "./components/FilterCategory";
 import FreelanceSection from "./components/FreelanceSection";
 import Header from "./components/Header";
-import getHome from "@/pages/queries/getHome";
-import getPages from "@/pages/queries/getPages";
-import getPosts from "@/pages/queries/getPosts";
+import getHome from "@/lib/queries/getHome";
+import getPages from "@/lib/queries/getPages";
+import getPosts from "@/lib/queries/getPosts";
 
 export default async function Home({
   searchParams,
@@ -179,8 +178,7 @@ export default async function Home({
         }
       />
 
-      {/* Sidfot */}
-      <Footer />
+  
     </main>
   );
 }

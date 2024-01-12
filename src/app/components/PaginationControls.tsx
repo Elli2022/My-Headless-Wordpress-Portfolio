@@ -3,7 +3,7 @@
 
 import { FC } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import getPosts from "@/pages/queries/getPosts";
+import getPosts from "@/lib/queries/getPosts";
 
 interface PaginationControlsProps {
   startCursor: string;

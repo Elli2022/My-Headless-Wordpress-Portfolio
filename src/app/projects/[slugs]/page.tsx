@@ -1,12 +1,13 @@
 // src/pages/projects/[slugs]/page.tsx
 
 import React from "react";
-import getPages from "@/pages/queries/getPages";
+import getPages from "@/lib/queries/getPages";
 import Navigation from "../../components/Navigation";
-import WP from "@/pages/api/wp";
-import getPost from "../../../pages/queries/getPost";
+import WP from "@/lib/api/wp";
+import getPost from "../../../lib/queries/getPost";
 import ProjectPost from "../../components/ProjectPost";
 import Footer from "@/app/components/Footer";
+import Link from "next/link";
 
 interface Post {
   title: string;
