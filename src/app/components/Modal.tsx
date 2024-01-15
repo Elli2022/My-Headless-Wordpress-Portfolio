@@ -41,7 +41,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     >
       <div
         ref={wrapper}
-        className="relative p-6 mx-auto w-full h-full"
+        className="relative p-6 mx-auto w-full h-full "
       >
         <button
           onClick={onDismiss}

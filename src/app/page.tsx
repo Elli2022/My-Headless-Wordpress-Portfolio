@@ -144,12 +144,12 @@ export default async function Home({
             </div>
           ))
         ) : (
-          // Meddelande om inga inlägg - centreras på skärmen
-          <div className="flex justify-center items-center h-full">
-            <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold uppercase">
-              Inga inlägg hittades under den valda kategorin.
-            </p>
-          </div>
+          // Expanded message container to take up the entire middle column of the grid
+    <div className="col-start-2 col-span-1 flex justify-center items-center">
+    <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  uppercase">
+      Inga inlägg hittades under den valda kategorin.
+    </p>
+  </div>
         )}
       </div>
 

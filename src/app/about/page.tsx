@@ -7,7 +7,7 @@ const AboutPage = () => {
       <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center ">
         <div className="container mx-auto px-4">
           <div className="text-left py-5 ">
-            <Link href="/home" className="text-white font-bold text-lg" >
+            <Link href="/home" className="text-white font-bold text-lg">
               Portfolio.
             </Link>
           </div>
@@ -47,8 +47,37 @@ const AboutPage = () => {
               <div>
                 <p className=" mt-auto mb-20 sm:text-xl">Developer</p>
               </div>
-              <div></div>
-              <div></div>
+              {/* Social media links container */}
+            <div className="mt-4 text-left sm:text-l">
+              <a
+                href="https://www.linkedin.com/in/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white mx-2"
+              >
+                {/* Replace with LinkedIn icon if available */}
+                LINKEDIN
+              </a>
+              <a
+                href="https://www.instagram.com/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white mx-2"
+              >
+                {/* Replace with Instagram icon if available */}
+                INSTAGRAM
+              </a>
+              <a
+                href="https://www.facebook.com/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white mx-2"
+              >
+                {/* Replace with Facebook icon if available */}
+                FACEBOOK
+              </a>
+              {/* Add more links as needed */}
+            </div>
             </div>
 
             {/* Photo container */}
@@ -61,7 +90,9 @@ const AboutPage = () => {
                   </span>
                 </div>
               </div>
+              
             </div>
+            
           </div>
         </div>
       </div>
