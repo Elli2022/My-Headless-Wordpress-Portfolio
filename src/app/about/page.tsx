@@ -11,7 +11,6 @@ const AboutPage = () => {
               Portfolio.
             </Link>
           </div>
-
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
             <div className="flex-1 max-w-md">
               <div className="text-center mb-10 sm:text-sm">
@@ -35,19 +34,18 @@ const AboutPage = () => {
                   </a>
                 </p>
               </div>
-
               <div>
                 <p className="font-snirklig text-4xl sm:text-6xl">
                   Eleonora Nocentini Sköldebrink
                 </p>
               </div>
               <div>
-                <p className="block text-sm font-semibold">
+                <p className="sm:text-xl font-semibold ">
                   Eleonora Nocentini Sköldebrink
                 </p>
               </div>
               <div>
-                <p className="block mt-auto mb-20  text-sm">Developer</p>
+                <p className=" mt-auto mb-20 sm:text-xl">Developer</p>
               </div>
               <div></div>
               <div></div>
@@ -58,7 +56,9 @@ const AboutPage = () => {
               <div className="rounded-lg shadow-xl flex items-center justify-center">
                 <div className="h-80 w-64 sm:h-96 sm:w-80 bg-gray-200 flex items-center justify-center">
                   {/* Placeholder text or icon */}
-                  <span className="text-gray-500"></span>
+                  <span className="text-gray-500">
+                    <img src="/images/portfolioFoto.jpg" alt="" />
+                  </span>
                 </div>
               </div>
             </div>
