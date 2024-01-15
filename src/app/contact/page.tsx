@@ -52,7 +52,7 @@ const ContactPage = () => {
                 <label htmlFor="message" className="block text-sm ">
                   Write your message
                 </label>
-                <textarea id="message" rows="4" className="w-full bg-transparent border-grey border-b border-gray-600 focus:ring-0 text-white"></textarea>
+                <textarea id="message" rows={4} className="w-full bg-transparent border-grey border-b border-gray-600 focus:ring-0 text-white"></textarea>
               </div>
               <div className="flex-left justify-center mb-4 md:mb-6">
                 <button type="submit" className="py-2 px-8 md:py-2.5 md:px-10 lg:py-3 lg:px-12 text-xs md:text-sm lg:text-base bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline transition-colors duration-300 ease inline-block mt-5">
