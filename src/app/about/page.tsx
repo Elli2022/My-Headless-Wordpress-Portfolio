@@ -13,8 +13,8 @@ const AboutPage = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
             <div className="flex-1 max-w-md">
-              <div className="text-center mb-10 sm:text-sm">
-                <h1 className="text-4xl font-bold mb-10 text-left sm:text-3xl">
+              <div className="text-center mb-5 sm:text-sm">
+                <h1 className="text-4xl font-bold mb-10 text-left sm:text-4xl">
                   Eleonora Nocentini Sköldebrink
                 </h1>
                 <p className="mb-4 text-left sm:text-sm">
@@ -35,7 +35,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <div>
-                <p className="font-snirklig text-4xl sm:text-6xl">
+                <p className="font-snirklig text-2xl sm:text-4xl">
                   Eleonora Nocentini Sköldebrink
                 </p>
               </div>
@@ -45,17 +45,17 @@ const AboutPage = () => {
                 </p>
               </div>
               <div>
-                <p className=" mt-auto mb-20 sm:text-xl">Developer</p>
+                <p className=" mt-auto mb-8 sm:text-xl">Developer</p>
               </div>
               {/* Social media links container */}
-            <div className="mt-4 text-left sm:text-l">
+            <div className="mt-auto text-left sm:text-l">
               <a
                 href="https://www.linkedin.com/in/yourprofile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white mx-2"
+                className="text-white "
               >
-                {/* Replace with LinkedIn icon if available */}
+                {/*  LinkedIn  */}
                 LINKEDIN
               </a>
               <a
@@ -64,7 +64,7 @@ const AboutPage = () => {
                 rel="noopener noreferrer"
                 className="text-white mx-2"
               >
-                {/* Replace with Instagram icon if available */}
+                {/* Instagram  */}
                 INSTAGRAM
               </a>
               <a
@@ -73,10 +73,9 @@ const AboutPage = () => {
                 rel="noopener noreferrer"
                 className="text-white mx-2"
               >
-                {/* Replace with Facebook icon if available */}
+                {/*  Facebook*/}
                 FACEBOOK
               </a>
-              {/* Add more links as needed */}
             </div>
             </div>
 
