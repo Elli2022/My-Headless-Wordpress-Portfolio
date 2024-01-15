@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ titleHtml, presentingText }) => {
     <header className="text-center mt-40 ">
       <p className="mt-4">{presentingText}</p>
       <h1
-        className="text-5xl font-bold "
+        className="sm:text-8xl font-bold "
         dangerouslySetInnerHTML={{ __html: titleHtml }}
       ></h1>
     </header>

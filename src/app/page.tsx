@@ -1,9 +1,13 @@
+//src/app/page.tsx
 import React from "react";
 import Link from "next/link";
 import PaginationControls from "./components/PaginationControls";
 import FilterCategory from "./components/FilterCategory";
 import FreelanceSection from "./components/FreelanceSection";
 import Header from "./components/Header";
+import PostContainer from "./components/PostContainer"; 
+import ExploreButton from "./components/ExploreButton";
+import Footer from "./components/Footer";
 import getHome from "@/lib/queries/getHome";
 import getPages from "@/lib/queries/getPages";
 import getPosts from "@/lib/queries/getPosts";
@@ -64,7 +68,7 @@ export default async function Home({
 
   // Huvudrenderingslogik.
   return (
-    <main className="min-h-screen bg-gradient-to-b text-black p-4 md:p-15 ">
+    <main className="min-h-screen bg-gradient-to-b text-black p-4 md:p-15 mr-4 ">
       {/* Navigationsmeny */}
       <nav className="flex justify-between items-center">
         {/* Vänster navigationslänk */}
@@ -109,49 +113,18 @@ export default async function Home({
         titleHtml={data?.homePage.homePageTitle.replace("fueled", "fueled<br>")}
         presentingText={data?.homePage.presentingText}
       />
-      {/* Knapp och länkar för utforskning */}
-      <div className="text-center mt-7">
-        <a
-          href={data?.homePage.buttonUrl}
-          className="py-2.5 px-6 bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline text-base transition-colors duration-300 ease inline-block mt-5 mb-40"
-        >
-          {data?.homePage.buttonText}
-        </a>
-      </div>
+      
+      {/* ExploreButton med länk till Github */}
+      <ExploreButton 
+      buttonUrl={data?.homePage.buttonUrl} 
+      buttonText={data?.homePage.buttonText} 
+    />
 
       {/* Kategorifilter */}
       <FilterCategory categories={categories} />
 
       {/* Inläggskontainer */}
-      <div className="grid grid-cols-3 gap-4 mb-16">
-        {/* Konditionell rendering av inlägg eller ett meddelande om inga inlägg finns */}
-        {hasPosts ? (
-          filteredPosts.map((post: any) => (
-            <div key={post.id} className="w-full pb-[100%] relative mb-20">
-              <Link href={`/projects/${post.slug}`}>
-                <img
-                  src={post.featuredImage.node.mediaItemUrl}
-                  alt={post.title}
-                  className="absolute w-full h-full object-cover mb-40 mb-[-5rem]"
-                />
-                <div className="absolute w-full bottom-0 mb-[-5rem] p-4 bg-white flex flex-col items-center justify-center">
-                  <p className="text-xs md:text-sm lg:text-base text-gray-500 uppercase tracking-wide mb-2">
-                    {post.PostInfo.subtitle}
-                  </p>
-                  <h2 className="text-lg font text-center">{post.title}</h2>
-                </div>
-              </Link>
-            </div>
-          ))
-        ) : (
-          // Expanded message container to take up the entire middle column of the grid
-    <div className="col-start-2 col-span-1 flex justify-center items-center">
-    <p className="text-center text-md md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl  uppercase">
-      Inga inlägg hittades under den valda kategorin.
-    </p>
-  </div>
-        )}
-      </div>
+      <PostContainer hasPosts={hasPosts} filteredPosts={filteredPosts} />
 
       {/* Pagineringskontroller */}
       <PaginationControls
@@ -177,8 +150,7 @@ export default async function Home({
           data?.homePage.freelanceProjects.freelanceProjectsButton
         }
       />
-
-  
+      <Footer/>
     </main>
   );
 }

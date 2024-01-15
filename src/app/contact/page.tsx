@@ -20,7 +20,7 @@ const ContactPage = () => {
             </Link>
           </div>
 
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className="flex flex-wrap justify-center gap-10 ml-4">
           <div className="flex-1 max-w-md">
             <div className="text-center mb-10">
               <h1 className="text-4xl font-bold mb-4 text-left mt-12">Contact now</h1>
@@ -30,7 +30,7 @@ const ContactPage = () => {
             </div>
 
           {/* Kontaktformulär*/}
-            <form className="space-y-6">
+            <form className="space-y-6 mr-4">
               <div>
               <label htmlFor="name" className="block text-sm mt-12 mr-12">
                   Your name

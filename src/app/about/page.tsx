@@ -6,14 +6,14 @@ const AboutPage = () => {
     <Modal>
       <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center ">
         {/* Flyttad Portfolio-länk här */}
-        <div className="absolute top-10 left-14 text-white text-4xl">
+        <div className="absolute top-8 left-14 text-white text-4xl">
           <Link href="/home" className="text-white font-bold text-lg">
             Portfolio.
           </Link>
         </div>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 ml-4">
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
-            <div className="flex-1 max-w-md">
+          <div className="flex-1 max-w-xs sm:max-w-md">
               <div className="text-center mb-5 sm:text-sm">
                 <h1 className="font-bold mb-5 text-left sm:text-4xl">
                   Eleonora Nocentini Sköldebrink
@@ -81,7 +81,7 @@ const AboutPage = () => {
             </div>
 
             {/* Photo container */}
-            <div className="max-w-md mt-auto mb-auto order-first">
+            <div className="max-w-md mt-12 mb-12 order-first mr-8">
               <div className="rounded-lg shadow-xl flex items-center justify-center">
                 <div className="h-80 w-64 sm:h-96 sm:w-80 bg-gray-200 flex items-center justify-center">
                   {/* Placeholder text or icon */}
