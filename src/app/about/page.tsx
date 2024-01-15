@@ -7,12 +7,11 @@ const AboutPage = () => {
       <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center ">
         {/* Flyttad Portfolio-länk här */}
         <div className="absolute top-10 left-14 text-white text-4xl">
-            <Link href="/home" className="text-white font-bold text-lg">
-               Portfolio.
-            </Link>
-          </div>
+          <Link href="/home" className="text-white font-bold text-lg">
+            Portfolio.
+          </Link>
+        </div>
         <div className="container mx-auto px-4">
-          
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
             <div className="flex-1 max-w-md">
               <div className="text-center mb-5 sm:text-sm">
@@ -50,35 +49,35 @@ const AboutPage = () => {
                 <p className=" mt-auto mb-12 sm:text-xl">Developer</p>
               </div>
               {/* Social media links container */}
-            <div className="mt-12 text-left sm:text-l">
-              <a
-                href="https://www.linkedin.com/in/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white "
-              >
-                {/*  LinkedIn  */}
-                LINKEDIN
-              </a>
-              <a
-                href="https://www.instagram.com/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white mx-2"
-              >
-                {/* Instagram  */}
-                INSTAGRAM
-              </a>
-              <a
-                href="https://www.facebook.com/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white mx-2"
-              >
-                {/*  Facebook*/}
-                FACEBOOK
-              </a>
-            </div>
+              <div className="mt-12 text-left sm:text-l">
+                <a
+                  href="https://www.linkedin.com/in/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white "
+                >
+                  {/*  LinkedIn  */}
+                  LINKEDIN
+                </a>
+                <a
+                  href="https://www.instagram.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white mx-2"
+                >
+                  {/* Instagram  */}
+                  INSTAGRAM
+                </a>
+                <a
+                  href="https://www.facebook.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white mx-2"
+                >
+                  {/*  Facebook*/}
+                  FACEBOOK
+                </a>
+              </div>
             </div>
 
             {/* Photo container */}
@@ -91,9 +90,7 @@ const AboutPage = () => {
                   </span>
                 </div>
               </div>
-              
             </div>
-            
           </div>
         </div>
       </div>

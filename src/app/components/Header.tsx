@@ -8,9 +8,12 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ titleHtml, presentingText }) => {
   return (
-    <header className="text-center mt-40">
+    <header className="text-center mt-40 ">
       <p className="mt-4">{presentingText}</p>
-      <h1 className="text-5xl font-bold" dangerouslySetInnerHTML={{ __html: titleHtml }}></h1>
+      <h1
+        className="text-5xl font-bold "
+        dangerouslySetInnerHTML={{ __html: titleHtml }}
+      ></h1>
     </header>
   );
 };
