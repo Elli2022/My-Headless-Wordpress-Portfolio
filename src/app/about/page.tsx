@@ -1,20 +1,17 @@
-import React from "react";
 import Link from "next/link";
 import Modal from "../components/Modal";
 
 const AboutPage = () => {
   return (
     <Modal>
-      <div className="min-h-screen bg-[#1E415B] text-white flex flex-col">
+      <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center ">
         <div className="container mx-auto px-4">
-        <div className="relative"> {/* Förälder som ger en positioneringskontext */}
-
-        <div className="text-left pt-[-15] pb-25 sticky top-0 z-10"> {/* Anpassa pt-* värdet för att flytta upp länken, och se till att elementet är vid toppen av viewporten när det blir sticky */}
-            <Link href="/home" className="text-white font-bold text-lg mb-12" >
+          <div className="text-left py-5 ">
+            <Link href="/home" className="text-white font-bold text-lg" >
               Portfolio.
             </Link>
           </div>
-          </div>
+
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
             <div className="flex-1 max-w-md">
               <div className="text-center mb-10 sm:text-sm">
