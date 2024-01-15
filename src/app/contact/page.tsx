@@ -13,11 +13,12 @@ const ContactPage = () => {
     <Modal>
 <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center">
       <div className="container mx-auto px-4">
-        <div className="text-left py-5">
-          <Link href="/home" className="text-white font-bold text-l">
-            Portfolio.
-          </Link>
-        </div>
+        {/* Flyttad Portfolio-länk här */}
+        <div className="absolute top-10 left-14 text-white text-4xl">
+            <Link href="/home" className="text-white font-bold text-lg">
+               Portfolio.
+            </Link>
+          </div>
 
         <div className="flex flex-wrap justify-center gap-10">
           <div className="flex-1 max-w-md">

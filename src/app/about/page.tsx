@@ -5,16 +5,18 @@ const AboutPage = () => {
   return (
     <Modal>
       <div className="min-h-screen bg-[#1E415B] text-white flex flex-col justify-center ">
-        <div className="container mx-auto px-4">
-          <div className="text-left py-5 ">
+        {/* Flyttad Portfolio-länk här */}
+        <div className="absolute top-10 left-14 text-white text-4xl">
             <Link href="/home" className="text-white font-bold text-lg">
-              Portfolio.
+               Portfolio.
             </Link>
           </div>
+        <div className="container mx-auto px-4">
+          
           <div className="flex flex-wrap justify-center gap-10 sm:gap-10">
             <div className="flex-1 max-w-md">
               <div className="text-center mb-5 sm:text-sm">
-                <h1 className="text-4xl font-bold mb-10 text-left sm:text-4xl">
+                <h1 className="font-bold mb-5 text-left sm:text-4xl">
                   Eleonora Nocentini Sköldebrink
                 </h1>
                 <p className="mb-4 text-left sm:text-sm">
@@ -45,10 +47,10 @@ const AboutPage = () => {
                 </p>
               </div>
               <div>
-                <p className=" mt-auto mb-8 sm:text-xl">Developer</p>
+                <p className=" mt-auto mb-12 sm:text-xl">Developer</p>
               </div>
               {/* Social media links container */}
-            <div className="mt-auto text-left sm:text-l">
+            <div className="mt-12 text-left sm:text-l">
               <a
                 href="https://www.linkedin.com/in/yourprofile"
                 target="_blank"
