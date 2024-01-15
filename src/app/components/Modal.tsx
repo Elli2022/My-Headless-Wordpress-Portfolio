@@ -45,7 +45,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       >
         <button
           onClick={onDismiss}
-          className="absolute top-4 right-6 text-white text-2xl"
+          className="absolute top-10 right-14 text-white text-4xl"
           aria-label="Close"
         >
           &times;
