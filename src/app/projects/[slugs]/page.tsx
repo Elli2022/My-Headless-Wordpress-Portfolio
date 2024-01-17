@@ -1,4 +1,5 @@
 // src/pages/projects/[slugs]/page.tsx
+
 import React from "react";
 import getPages from "@/lib/queries/getPages";
 import Navigation from "../../components/Navigation";
@@ -6,8 +7,8 @@ import WP from "@/lib/api/wp";
 import getPost from "../../../lib/queries/getPost";
 import ProjectPost from "../../components/ProjectPost";
 import Footer from "@/app/components/Footer";
+import KeyFindings from '../../components/KeyFindings';
 
-const apiKey = process.env.wordpressApiKey;
 
 export async function generateStaticParams() {
   // Fetch all the slugs for the posts
@@ -30,7 +31,6 @@ export async function generateStaticParams() {
 
   return paths;
 }
-
 
 const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   console.log("Received slug:", params.slugs); // Logga mottagen slug
@@ -102,7 +102,6 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
 
   //Destructering- värden för att rendera komponenter
   const {
-    branding,
     text = "Default text if null",
     nextprojecttext = "Default next project text if null",
     replaceurl = "#", // Standardvärde om inget finns
@@ -199,46 +198,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             {renderImages(additionalPostInfo?.PostInfo?.blocks || [])}
           </div>
 
-          <h1 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-4xl 4xl:text-4xl font-semibold mb-4">
-            {keyFindingsBlock.keyfindingstitle}
-          </h1>
-
-          {keyFindingsBlock && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex flex-col p-4 bg-white rounded-lg">
-                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-xl font-semibold">
-                  {keyFindingsBlock.basics}
-                </h2>
-                <p className="text-left text-sm sm:text-base md:text-lg font-light">
-                  {keyFindingsBlock.basicstext}
-                </p>
-              </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg">
-                <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
-                  {keyFindingsBlock.goals}
-                </h2>
-                <p className="text-left text-sm sm:text-base md:text-lg font-light">
-                  {keyFindingsBlock.goalstext}
-                </p>
-              </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg">
-                <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
-                  {keyFindingsBlock.problems}
-                </h2>
-                <p className="text-left text-sm sm:text-base md:text-lg font-light">
-                  {keyFindingsBlock.problemstext}
-                </p>
-              </div>
-              <div className="flex flex-col p-4 bg-white rounded-lg">
-                <h2 className="text-sm sm:text-base md:text-lg text-base sm:text-lg md:text-xl font-semibold">
-                  {keyFindingsBlock.solutions}
-                </h2>
-                <p className="text-left text-sm sm:text-base md:text-lg font-light">
-                  {keyFindingsBlock.solutionstext}
-                </p>
-              </div>
-            </div>
-          )}
+          {keyFindingsBlock && <KeyFindings keyFindingsBlock={keyFindingsBlock} />}
         </div>
 
         {pictureBlock && (
@@ -285,24 +245,6 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-center mb-10 font-semibold relative z-10 mt-80">
           {text}
         </h2>
-
-        {/* Contact information and links */}
-        <div className="flex justify-center items-center space-x-2 mb-10 relative z-10">
-          <a
-            href="mailto:contact@folio.design"
-            className="text-sm text-blue-500 hover:underline"
-          >
-            CONTACT@FOLIO.DESIGN
-          </a>
-          <span>|</span>
-          <a
-            href="https://www.linkedin.com/company/folio"
-            className="mt-30 text-sm text-blue-500 hover:underline"
-          >
-            LINKEDIN.COM/FOLIO
-          </a>
-        </div>
-
         <Footer />
       </div>
     </>
