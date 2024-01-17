@@ -12,6 +12,7 @@ import getHome from "@/lib/queries/getHome";
 import getPages from "@/lib/queries/getPages";
 import getPosts from "@/lib/queries/getPosts";
 
+
 export default async function Home({
   searchParams,
 }: {

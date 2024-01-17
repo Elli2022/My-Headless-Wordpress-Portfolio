@@ -1,5 +1,4 @@
 // src/pages/projects/[slugs]/page.tsx
-
 import React from "react";
 import getPages from "@/lib/queries/getPages";
 import Navigation from "../../components/Navigation";
@@ -7,37 +6,6 @@ import WP from "@/lib/api/wp";
 import getPost from "../../../lib/queries/getPost";
 import ProjectPost from "../../components/ProjectPost";
 import Footer from "@/app/components/Footer";
-import Link from "next/link";
-
-interface Post {
-  title: string;
-  content: string;
-  featuredImage: {
-    node: {
-      mediaItemUrl: string;
-      slug: string;
-    };
-  };
-  slug: string;
-}
-
-interface PostNode {
-  featuredImage: {
-    node: {
-      slug: string;
-    };
-  };
-  slug: string;
-}
-
-interface ProjectPageProps {
-  post: Post;
-}
-
-interface FeaturedImageNode {
-  mediaItemUrl: string;
-  slug: string;
-}
 
 const apiKey = process.env.wordpressApiKey;
 
@@ -63,11 +31,6 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// Define a global variable to store the post data
-let globalPostData: {
-  [x: string]: any;
-  title: string;
-};
 
 const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   console.log("Received slug:", params.slugs); // Logga mottagen slug
@@ -144,7 +107,6 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
     nextprojecttext = "Default next project text if null",
     replaceurl = "#", // Standardvärde om inget finns
     replacetext = "Default replace text if null", // Standardvärde om inget finns
-    liveworkbuttonURL = "#",
     liveworkbuttontext = "Default replace text if null",
     tosatisfyourgoaltext = "Default text if null",
     blocks = [],
