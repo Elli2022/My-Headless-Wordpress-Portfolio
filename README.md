@@ -17,7 +17,6 @@ This project is part of my work during the internship LIA 1. It is a web applica
 * Run the application: npm run dev or yarn dev
 
 ### Features
-
 * Dynamic navigation menu based on page data
 * Automatically generated post cards based on WordPress data
 * Category filtering for posts
@@ -27,7 +26,6 @@ This project is part of my work during the internship LIA 1. It is a web applica
 
 
 ### Contributing
-
 * Fork the project
 * Create a new branch (git checkout -b feature/AmazingFeature)
 * Commit your changes (git commit -m 'Add some AmazingFeature')
@@ -36,13 +34,10 @@ This project is part of my work during the internship LIA 1. It is a web applica
 
 
 ## Project/[slug]/page.tsx
-
 ### Description
-
 This page is responsible for presenting detailed project posts. It utilizes dynamic routing in Next.js to fetch and display information for each unique project based on its 'slug'.
 
 ### Functionality
-
 - Dynamic Routing: The page uses Next.js's dynamic file-based routing to handle different project slugs.
 - Data Fetching: Uses GraphQL queries to fetch specific project post data from a Headless WordPress backend.
 - Component Structure:
@@ -58,6 +53,18 @@ Example of Code Usage
 - The generateStaticParams function fetches all slugs for project posts and generates static paths.
 - The component uses state and effects to manage and dynamically present data based on the current URL.
 
+# src/lib/wp.tsx
+### Description
+The wp.tsx file contains a helper function for performing GraphQL queries to a WordPress backend. This function is central to managing data retrieval from your Headless WordPress instance.
+
+**Functionality**
+-API Requests: Utilizes the fetch API to send requests to the WordPress backend.
+-Dynamic Queries: Supports dynamic GraphQL queries and variables.
+-Environment Variables: Uses an environment variable (process.env.wordpressApiKey) to store and reference the API key, providing a secure method for handling sensitive information.
+-Error Handling: Includes basic error handling and logging to facilitate debugging.
+
+**Usage in the Project**
+-This function is used throughout the project to retrieve data, such as posts and page information, from WordPress. It provides a standardized and reusable method for interacting with the backend.
 
 #### Getting Started
 
