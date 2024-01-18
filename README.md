@@ -66,6 +66,33 @@ The wp.tsx file contains a helper function for performing GraphQL queries to a W
 **Usage in the Project**
 -This function is used throughout the project to retrieve data, such as posts and page information, from WordPress. It provides a standardized and reusable method for interacting with the backend.
 
+
+
+##getHome.tsx
+###Description
+The `getHome.tsx` file contains a function for retrieving data about the website from a Headless WordPress backend. The function uses GraphQL to query for specific page and its content.
+
+**Functionality**
+- **GraphQL Request:** Utilizes a GraphQL query to fetch detailed information about the website.
+- **Data Retrieval:** Fetches data such as page title, content, links, and information about freelance projects and project galleries.
+- **Dynamic URI Parameters:** The function takes a URI parameter to retrieve data for a specific page.
+
+**Usage in the Project**
+This function is crucial for fetching and presenting the main content of the website. It provides a centralized location for handling data retrieval from WordPress.
+
+**Example**
+Here's an example of how the `getHome` function can be used:
+
+```javascript
+getHome('home-uri').then(data => {
+  console.log(data);
+});
+```
+
+**Notes**
+- Good use of asynchronous functions and GraphQL for efficient data retrieval.
+- It is recommended to handle API responses and errors in a robust manner to ensure a smooth user experience.
+
 #### Getting Started
 
 First, run the development server:
