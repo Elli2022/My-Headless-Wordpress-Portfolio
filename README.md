@@ -150,6 +150,39 @@ getPost('post-slug').then(data => {
 - It's important to handle API keys and sensitive information securely, such as using environment variables.
 - It is recommended to enhance error handling to provide clearer feedback to the user in case of any errors.
 
+Thank you for sharing the `getPosts.tsx` file. This function appears to be a key component for fetching blog posts and related information from your WordPress backend. Let's include a description of this function in the README draft.
+
+---
+
+## src/pages/queries/getPosts.tsx
+
+### Description
+The `getPosts.tsx` file contains an asynchronous function for fetching blog posts and related information from a Headless WordPress backend. The function utilizes GraphQL to query posts and includes handling for pagination and category filtering.
+
+### Functionality
+- **Flexible GraphQL Request:** Supports dynamic arguments such as page number, posts per page, and category ID for custom data retrieval.
+- **Pagination:** Manages post pagination using `afterCursor` and `beforeCursor`.
+- **Category Filtering:** Enables post filtering based on category using `databaseId`.
+- **Structured Return Data:** Returns posts, page information objects, and categories for further use in the application.
+- **Error Handling:** Includes error handling to capture and log errors in case of failed API calls.
+
+### Usage in the Project
+This function is used to fetch and display blog posts with the ability to paginate and filter based on categories, which is crucial for creating a dynamic and user-friendly blog experience.
+
+### Example
+An example of how the `getPosts` function can be used:
+
+```javascript
+getPosts(1, 6, "", "", "categoryId").then(data => {
+  console.log(data);
+});
+```
+
+### Notes
+- It is recommended to consider additional optimizations and improvements in error handling to ensure a robust user experience.
+- It's important to ensure that category IDs and other parameters are handled securely and efficiently.
+
+
 
 #### Getting Started
 
