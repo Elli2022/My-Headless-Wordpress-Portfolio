@@ -46,9 +46,9 @@ This page is responsible for presenting detailed project posts. It utilizes dyna
 - Dynamic Routing: The page uses Next.js's dynamic file-based routing to handle different project slugs.
 - Data Fetching: Uses GraphQL queries to fetch specific project post data from a Headless WordPress backend.
 - Component Structure:
-  - Navigation: Displays a navigation menu.
-  - ProjectPost: Renders the main content of the project post.
-  - KeyFindings, PictureBlock, LiveWorkButton: Special components to display different parts of the project data.
+  - **Navigation:** Displays a navigation menu.
+  - **ProjectPost:** Renders the main content of the project post.
+  - **KeyFindings**, PictureBlock, LiveWorkButton: Special components to display different parts of the project data.
 - Static Generation: Implements generateStaticParams to generate static paths for each project.
 Technologies and Libraries
 - React and Next.js for frontend development.
