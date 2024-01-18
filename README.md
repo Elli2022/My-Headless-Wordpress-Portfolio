@@ -6,9 +6,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This project is part of my work during the internship LIA 1. It is a web application built with Headless WordPress and React (using Next.js) to showcase a dynamic portfolio. The web application includes features such as pagination, filtering posts by category, and a freelance section.
 
 ## Technologies Used
-#### React
+* React
 
-####Next.js
+* Next.js
 
 Headless WordPress
 
