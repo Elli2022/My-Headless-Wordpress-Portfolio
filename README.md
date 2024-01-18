@@ -1,5 +1,41 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# My Headless Wordpress Portfolio
+
+## Description
+This project is part of my work during the internship LIA 1. It is a web application built with Headless WordPress and React (using Next.js) to showcase a dynamic portfolio. The web application includes features such as pagination, filtering posts by category, and a freelance section.
+
+## Technologies Used
+#### React
+
+####Next.js
+
+Headless WordPress
+
+CSS (specify specific libraries or frameworks if used)
+Installation
+Explain here step-by-step how to install and run your application. This may include:
+
+Clone the repo: git clone [repo-url]
+
+Install dependencies: npm install or yarn install
+
+Run the application: npm run dev or yarn dev
+Features
+
+Dynamic navigation menu based on page data
+
+Automatically generated post cards based on WordPress data
+
+Category filtering for posts
+
+Pagination controls
+
+Link to the GitHub project
+
+Freelance project section with information and contact link
+Screenshots
+(Add screenshots of your application here)
 ## Getting Started
 
 First, run the development server:
