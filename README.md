@@ -7,35 +7,34 @@ This project is part of my work during the internship LIA 1. It is a web applica
 
 ## Technologies Used
 * React
-
 * Next.js
+* Headless WordPress
+* Tailwind CSS
 
-Headless WordPress
+## Installation
+* Clone the repo: git clone [repo-url]
+* Install dependencies: npm install or yarn install
+* Run the application: npm run dev or yarn dev
 
-CSS (specify specific libraries or frameworks if used)
-Installation
-Explain here step-by-step how to install and run your application. This may include:
+## Features
 
-Clone the repo: git clone [repo-url]
+* Dynamic navigation menu based on page data
+* Automatically generated post cards based on WordPress data
+* Category filtering for posts
+* Pagination controls
+* Link to the GitHub project
+* Freelance project section with information and contact link
 
-Install dependencies: npm install or yarn install
 
-Run the application: npm run dev or yarn dev
-Features
+## Contributing
 
-Dynamic navigation menu based on page data
+* Fork the project
+* Create a new branch (git checkout -b feature/AmazingFeature)
+* Commit your changes (git commit -m 'Add some AmazingFeature')
+* Push to the branch (git push origin feature/AmazingFeature)
+* Open a Pull Request
 
-Automatically generated post cards based on WordPress data
 
-Category filtering for posts
-
-Pagination controls
-
-Link to the GitHub project
-
-Freelance project section with information and contact link
-Screenshots
-(Add screenshots of your application here)
 ## Getting Started
 
 First, run the development server:
