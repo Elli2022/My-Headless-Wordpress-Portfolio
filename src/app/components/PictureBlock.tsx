@@ -1,5 +1,5 @@
 import React from "react";
-import NextProjectText from "./NextProjectText";
+
 
 interface PictureBlockProps {
   pictureBlock: {
@@ -7,9 +7,9 @@ interface PictureBlockProps {
       mediaItemUrl: string;
       altText?: string;
     };
-    nextprojecttext?: string; // Optional if used
+    nextprojecttext?: string; 
     replaceurl: string;
-    replacetext?: string; // Optional if used
+    replacetext?: string; 
   };
 }
 

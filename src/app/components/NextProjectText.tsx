@@ -1,3 +1,4 @@
+//src/app/components/NextProjectText.tsx
 import React from 'react';
 
 interface NextProjectTextProps {

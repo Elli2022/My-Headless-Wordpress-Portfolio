@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Typdefinition för props, justera enligt dina datatyper
+// Typdefinition för props
 interface KeyFindingsProps {
   keyFindingsBlock: {
     basics: string;
@@ -15,9 +15,9 @@ interface KeyFindingsProps {
 }
 
 const KeyFindings: React.FC<KeyFindingsProps> = ({ keyFindingsBlock }) => {
-  // Kontrollera om keyFindingsBlock finns innan rendering
+  // Kontrollerar om keyFindingsBlock finns innan rendering
   if (!keyFindingsBlock) {
-    return null; // eller en lämplig placeholder
+    return null;
   }
 
   return (

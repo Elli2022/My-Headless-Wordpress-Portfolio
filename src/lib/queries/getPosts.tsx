@@ -6,7 +6,7 @@ export default async function getPosts(
   perPage = 6,
   afterCursor = "",
   beforeCursor = "",
-  databaseId = "" // Ändra här från categoryId till databaseId
+  databaseId = "" 
 ) {
   try {
     let queryArgs = {};
@@ -21,7 +21,7 @@ export default async function getPosts(
     
     // Lägg till databaseId i queryArgs om det finns
     if (databaseId) {
-      queryArgs = { ...queryArgs, categoryId: parseInt(databaseId, 10) }; // Omvandla databaseId till en siffra
+      queryArgs = { ...queryArgs, categoryId: parseInt(databaseId, 10) }; // Omvandlar databaseId till en siffra
     }
 
     console.log("Page:", page);
@@ -29,7 +29,7 @@ export default async function getPosts(
     console.log("AfterCursor:", afterCursor);
     console.log("BeforeCursor:", beforeCursor);
     console.log("Query Arguments:", queryArgs);
-    // console.log("DatabaseId: ", databaseId);
+   
 
     const resPost = await WP(
       `query GetPosts($after: String, $first: Int, $last: Int, $before: String, $categoryId: Int) {
