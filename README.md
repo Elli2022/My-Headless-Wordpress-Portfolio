@@ -52,8 +52,8 @@ This page is responsible for presenting detailed project posts. It utilizes dyna
 - Static Generation: Implements generateStaticParams to generate static paths for each project.
 Technologies and Libraries
 - React and Next.js for frontend development.
-- GraphQL and Headless WordPress for data management.
-- Component-based architecture to structure the project content.
+- **GraphQL and Headless WordPress** for data management.
+-** Component-based architecture** to structure the project content.
 Example of Code Usage
 - The generateStaticParams function fetches all slugs for project posts and generates static paths.
 - The component uses state and effects to manage and dynamically present data based on the current URL.
