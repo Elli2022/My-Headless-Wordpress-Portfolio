@@ -8,6 +8,9 @@ import getPost from "../../../lib/queries/getPost";
 import ProjectPost from "../../components/ProjectPost";
 import Footer from "@/app/components/Footer";
 import KeyFindings from '../../components/KeyFindings';
+import PictureBlock from "@/app/components/PictureBlock";
+import LiveWorkButton from "@/app/components/LiveWorkButton";
+
 
 
 export async function generateStaticParams() {
@@ -36,6 +39,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   console.log("Received slug:", params.slugs); // Logga mottagen slug
   let globalPostData = null;
   let additionalPostInfo = null; // Definiera additionalPostInfo här
+  
 
   // Hämta data från WP
   const resPost = await WP(
@@ -74,6 +78,9 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
     console.log("Additional Post Info:", additionalPostInfo); // Logga ytterligare post info
   }
 
+  // Assuming these are the correct properties you want to pass to LiveWorkButton
+  const liveWorkButtonText = additionalData?.data?.post?.PostInfo?.liveworkbuttontext || "Default Button Text";
+  const liveWorkButtonUrl = additionalData?.data?.post?.PostInfo?.liveWorkButtonUrl || "#";
   console.log(additionalData.data.post.PostInfo.branding);
 
   const navlinks = await getPages();
@@ -99,6 +106,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
     (block: { fieldGroupName: string }) =>
       block.fieldGroupName === "Post_Postinfo_Blocks_Picture"
   );
+  
 
   //Destructering- värden för att rendera komponenter
   const {
@@ -181,17 +189,12 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
             </div>
 
             {/* Live work knappen */}
-            <div className="mb-4 md:mb-6">
-              <a
-                href={liveworkbuttontext}
-                className="py-2 px-8 md:py-2.5 md:px-10 lg:py-3 lg:px-12 text-xs md:text-sm lg:text-base bg-blue-500 text-white uppercase rounded-full cursor-pointer no-underline transition-colors duration-300 ease inline-block mt-5"
-              >
-                {liveworkbuttontext}
-                <span className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  &rarr;
-                </span>
-              </a>
-            </div>
+        {LiveWorkButton && (
+          <LiveWorkButton 
+            buttonText={liveWorkButtonText}
+            buttonUrl={liveWorkButtonUrl}
+          />
+        )}
           </div>
 
           <div className="grid-cols-2 mb-20 gap-2 lg:gap-9">
@@ -201,45 +204,8 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
           {keyFindingsBlock && <KeyFindings keyFindingsBlock={keyFindingsBlock} />}
         </div>
 
-        {pictureBlock && (
-          <div className="relative mt-24 md:min-h-screen bg-cover bg-no-repeat bg-center ">
-            {/* Overlay box */}
-            <div className="absolute inset-0 top-1/4 w-screen left-1/2 h-full transform -translate-x-1/2 bg-[#1E415B] shadow-md"></div>
-            {/* Image on top of the overlay box */}
-            <img
-              src={pictureBlock.picture.mediaItemUrl}
-              alt="Block Image"
-              className="w-full relative"
-              style={{ zIndex: 0 }}
-            />
-            {/* Next Project Text */}
-            <div className="absolute w-full text-center z-10">
-              <p className="text-xs lg:text-3xl text-white">
-                {nextprojecttext}
-              </p>
-            </div>
-            <div className="text-center mt-10">
-              <a
-                href={replaceurl}
-                className="text-xl lg:text-3xl font-bold text-white inline-block my-4"
-                style={{ position: "relative", padding: "10px 40px 10px 25px" }}
-              >
-                {replacetext}
-                <span
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    fontSize: "larger",
-                  }}
-                >
-                  &rarr;
-                </span>
-              </a>
-            </div>
-          </div>
-        )}
+        {pictureBlock && <PictureBlock pictureBlock={pictureBlock} />}
+
 
         {/* Additional text that should not be covered */}
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-center mb-10 font-semibold relative z-10 mt-80">

@@ -22,14 +22,14 @@ const Navigation: React.FC<NavigationProps> = ({
   return (
     <nav className="flex justify-between items-center">
       {/* Vänster länk */}
-      <div className="nav-left font-bold no-underline text-base hover:text-primary ">
+      <div className="nav-left font-bold no-underline text-base hover:text-primary">
         <a key={portfolioLink.id} href={portfolioLink.uri} className="link">
           {portfolioLink.title}
         </a>
       </div>
 
       {/* Höger länkar */}
-      <div className="nav-right font-bold no-underline text-base ml-2.5 hover:text-primary ">
+      <div className="nav-right font-bold no-underline text-base ml-2.5 hover:text-primary">
         <a key={aboutLink.id} href={aboutLink.uri}>
           {aboutLink.title}
         </a>
