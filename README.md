@@ -90,6 +90,31 @@ getHome('home-uri').then(data => {
 });
 ```
 
+
+## getPages.tsx
+### Description 
+The `getPages.tsx` file contains an asynchronous function for fetching information about all pages from a Headless WordPress backend. The function uses GraphQL to query for pages and their attributes such as content, ID, slug, URI, and title.
+
+**Functionality**
+- **GraphQL Request:** Utilizes a GraphQL query to fetch information about all pages.
+- **Data Retrieval:** Retrieves page information necessary for building navigation links and other page-related functions in the application.
+- **Robust Error Handling:** Includes error handling to capture and log errors in case of failed API calls.
+
+**Usage in the Project**
+This function is central to creating a dynamic and interactive navigation in the web application. It facilitates code reuse by centralizing page retrieval logic.
+
+**Example**
+An example of how the `getPages` function can be used:
+
+```javascript
+getPages().then(data => {
+  console.log(data);
+});
+```
+
+**Notes**
+- Efficient use of asynchronous functions and GraphQL to handle page information.
+- It's important to consider error handling and user feedback in case of any communication issues with the API.
 **Notes**
 - Good use of asynchronous functions and GraphQL for efficient data retrieval.
 - It is recommended to handle API responses and errors in a robust manner to ensure a smooth user experience.
