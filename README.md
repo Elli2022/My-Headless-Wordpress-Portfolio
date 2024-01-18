@@ -2,21 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # My Headless Wordpress Portfolio
 
-## Description
+### Description
 This project is part of my work during the internship LIA 1. It is a web application built with Headless WordPress and React (using Next.js) to showcase a dynamic portfolio. The web application includes features such as pagination, filtering posts by category, and a freelance section.
 
-## Technologies Used
+### Technologies Used
 * React
 * Next.js
 * Headless WordPress
 * Tailwind CSS
 
-## Installation
+### Installation
 * Clone the repo: git clone [repo-url]
 * Install dependencies: npm install or yarn install
 * Run the application: npm run dev or yarn dev
 
-## Features
+### Features
 
 * Dynamic navigation menu based on page data
 * Automatically generated post cards based on WordPress data
@@ -26,7 +26,7 @@ This project is part of my work during the internship LIA 1. It is a web applica
 * Freelance project section with information and contact link
 
 
-## Contributing
+### Contributing
 
 * Fork the project
 * Create a new branch (git checkout -b feature/AmazingFeature)
@@ -35,7 +35,31 @@ This project is part of my work during the internship LIA 1. It is a web applica
 * Open a Pull Request
 
 
-## Getting Started
+## Project/[slug]/page.tsx
+
+### Description
+
+This page is responsible for presenting detailed project posts. It utilizes dynamic routing in Next.js to fetch and display information for each unique project based on its 'slug'.
+
+### Functionality
+
+- Dynamic Routing: The page uses Next.js's dynamic file-based routing to handle different project slugs.
+- Data Fetching: Uses GraphQL queries to fetch specific project post data from a Headless WordPress backend.
+- Component Structure:
+  - Navigation: Displays a navigation menu.
+  - ProjectPost: Renders the main content of the project post.
+  - KeyFindings, PictureBlock, LiveWorkButton: Special components to display different parts of the project data.
+- Static Generation: Implements generateStaticParams to generate static paths for each project.
+Technologies and Libraries
+- React and Next.js for frontend development.
+- GraphQL and Headless WordPress for data management.
+- Component-based architecture to structure the project content.
+Example of Code Usage
+- The generateStaticParams function fetches all slugs for project posts and generates static paths.
+- The component uses state and effects to manage and dynamically present data based on the current URL.
+
+
+#### Getting Started
 
 First, run the development server:
 
