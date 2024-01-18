@@ -119,6 +119,38 @@ getPages().then(data => {
 - Good use of asynchronous functions and GraphQL for efficient data retrieval.
 - It is recommended to handle API responses and errors in a robust manner to ensure a smooth user experience.
 
+Thank you for sharing the `getPost.tsx` file. This function appears to be essential for fetching detailed information about specific blog posts or pages from WordPress using GraphQL. I will include a description of this function in the README draft.
+
+---
+
+## src/pages/queries/getPost.tsx
+
+### Description
+The `getPost.tsx` file contains an asynchronous function for fetching detailed information about a specific post from a Headless WordPress backend, based on its 'slug'. The function utilizes GraphQL to query post data, including custom fields and content blocks.
+
+### Functionality
+- **Custom GraphQL Request:** Sends a detailed GraphQL request to fetch a specific post with its associated information.
+- **Dynamic Data Retrieval:** The function takes a 'slug' as a parameter and retrieves the corresponding post.
+- **Multiple Content Handling:** Retrieves various types of content blocks, including images, key findings, and text content.
+- **Error Handling:** Logs and handles any potential errors during data retrieval.
+
+### Usage in the Project
+This function is crucial for creating detailed pages for each project or blog post. It enables a rich presentation of content with different media and text formats.
+
+### Example
+An example of how the `getPost` function can be used:
+
+```javascript
+getPost('post-slug').then(data => {
+  console.log(data);
+});
+```
+
+### Notes
+- It's important to handle API keys and sensitive information securely, such as using environment variables.
+- It is recommended to enhance error handling to provide clearer feedback to the user in case of any errors.
+
+
 #### Getting Started
 
 First, run the development server:
