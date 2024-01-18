@@ -68,8 +68,9 @@ The wp.tsx file contains a helper function for performing GraphQL queries to a W
 
 
 
-##getHome.tsx
-###Description
+## getHome.tsx
+
+### Description
 The `getHome.tsx` file contains a function for retrieving data about the website from a Headless WordPress backend. The function uses GraphQL to query for specific page and its content.
 
 **Functionality**
