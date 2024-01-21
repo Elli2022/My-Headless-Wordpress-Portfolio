@@ -220,11 +220,8 @@ The code uses standard HTML and React/Next.js patterns to build the page's struc
 
 ### Notes
 - It's important to ensure that all external links are correct and that the email address is up-to-date.
-- Consider adding accessibility features, such as alt-text for images and appropriate ARIA labels where needed.
 
----
 
-To make your README more comprehensive, feel free to customize this description to better match your project's specific needs and your personal style. If you have additional pages or components in your project that you'd like to include in the documentation, please share them!
 #### Getting Started
 
 First, run the development server:
