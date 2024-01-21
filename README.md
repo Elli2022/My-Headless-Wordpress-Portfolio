@@ -183,7 +183,48 @@ getPosts(1, 6, "", "", "categoryId").then(data => {
 - It's important to ensure that category IDs and other parameters are handled securely and efficiently.
 
 
+Thank you for sharing the code for your `AboutPage` component in your Next.js project. This page appears to be designed to present information about you as a developer, including your contact information and links to social media. Let's include a description of this page in the README draft.
 
+---
+
+## About Page (`AboutPage`)
+
+### Description
+The About Page (`AboutPage`) is designed to present personal information about the developer, including a brief description, contact details, and links to social media. The page uses a `Modal` component to create a distinctive visual presentation.
+
+### Design and Layout
+- **Background and Text:** The page has a dark background with white text, creating a strong contrast and easy-to-read text.
+- **Navigation Link:** Includes a link back to the homepage (`Portfolio`).
+- **Flexible Layout:** Uses flexbox to create a responsive layout that adapts to different screen sizes.
+- **Personal Photo:** Displays a personal photo as a central visual element on the page.
+
+### Key Components
+- **Modal:** Used to encapsulate the entire content of the page.
+- **Contact Information:** Presents the email address and encourages visitors to get in touch.
+- **Social Media Links:** Includes links to LinkedIn, Instagram, and Facebook, making it easy for visitors to follow on various platforms.
+
+### Example Code Usage
+The code uses standard HTML and React/Next.js patterns to build the page's structure and style:
+
+```jsx
+<Link href="/home" className="text-white font-bold text-lg">
+  Portfolio.
+</Link>
+...
+<a href="mailto:my@gmail.com" className="text-white font-bold">
+  my@gmail.com
+</a>
+...
+<img src="/images/portfolioFoto.jpg" alt="" />
+```
+
+### Notes
+- It's important to ensure that all external links are correct and that the email address is up-to-date.
+- Consider adding accessibility features, such as alt-text for images and appropriate ARIA labels where needed.
+
+---
+
+To make your README more comprehensive, feel free to customize this description to better match your project's specific needs and your personal style. If you have additional pages or components in your project that you'd like to include in the documentation, please share them!
 #### Getting Started
 
 First, run the development server:
