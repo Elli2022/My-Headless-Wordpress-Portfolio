@@ -2,14 +2,55 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # My Headless Wordpress Portfolio
 
-### Description
-This project is part of my work during the internship LIA 1. It is a web application built with Headless WordPress and React (using Next.js) to showcase a dynamic portfolio. The web application includes features such as pagination, filtering posts by category, and a freelance section.
+## Introduction
+This project is a part of my work during my internship at Capace Media Group AB. It is a dynamic web application built with Headless WordPress and React (with Next.js) and aims to showcase a portfolio. The project utilizes Tailwind CSS for stylish and responsive design.
 
-### Technologies Used
-* React
-* Next.js
-* Headless WordPress
-* Tailwind CSS
+## Technologies and Tools
+- React/Next.js: For modern and efficient frontend development.
+- Headless WordPress: As the backend and CMS for content management.
+- Tailwind CSS: For responsive design and customizable styles.
+- GraphQL: For handling data retrieval from WordPress.
+
+## Components
+The project includes several custom React components:
+
+### Navigation
+A navigation bar that uses Next.js' Link to handle routing between pages. It includes links to the homepage, about page, and contact information.
+
+### Header
+Displays a welcoming header and introductory text for the page, using HTML-formatted text to create custom styling and layout.
+
+### Footer
+A footer component that contains contact information and links, styled with Tailwind CSS for a unified appearance.
+
+### PostsContainer
+Presents a collection of posts or projects in a grid format. It handles both when posts are available and when no posts are found for a given category.
+
+### ProjectPost
+Details information about a specific project or post, including title, content, and a prominent image.
+
+### Modal
+A reusable modal component for displaying content over the existing page, providing a focused user experience.
+
+### FilterCategory
+Offers a method for filtering posts based on categories, with dynamic rendering of category buttons.
+
+### ExploreButton and LiveWorkButton
+Button components designed to direct users to a specific URL, used to encourage interaction and engagement.
+
+### KeyFindings and PictureBlock
+Presents key findings and images in an impactful way, ideal for highlighting project information or artwork.
+
+## Contributions
+Contributions to the project are welcome. Create a fork, make your changes, and submit a pull request.
+
+## License
+Specify the license you are using for the project.
+
+## Contact
+Developer: Eleonora Nocentini Sköldebrink
+Organization: Capace Media Group AB
+Email: eleonora.nocentini@gmail.com
 
 ### Installation
 * Clone the repo: git clone [repo-url]
@@ -112,15 +153,6 @@ getPages().then(data => {
 });
 ```
 
-**Notes**
-- Efficient use of asynchronous functions and GraphQL to handle page information.
-- It's important to consider error handling and user feedback in case of any communication issues with the API.
-**Notes**
-- Good use of asynchronous functions and GraphQL for efficient data retrieval.
-- It is recommended to handle API responses and errors in a robust manner to ensure a smooth user experience.
-
-Thank you for sharing the `getPost.tsx` file. This function appears to be essential for fetching detailed information about specific blog posts or pages from WordPress using GraphQL. I will include a description of this function in the README draft.
-
 ---
 
 ## src/pages/queries/getPost.tsx
@@ -145,12 +177,6 @@ getPost('post-slug').then(data => {
   console.log(data);
 });
 ```
-
-### Notes
-- It's important to handle API keys and sensitive information securely, such as using environment variables.
-- It is recommended to enhance error handling to provide clearer feedback to the user in case of any errors.
-
-
 ---
 
 ## src/pages/queries/getPosts.tsx
@@ -180,9 +206,6 @@ getPosts(1, 6, "", "", "categoryId").then(data => {
 ### Notes
 - It is recommended to consider additional optimizations and improvements in error handling to ensure a robust user experience.
 - It's important to ensure that category IDs and other parameters are handled securely and efficiently.
-
-
-Thank you for sharing the code for your `AboutPage` component in your Next.js project. This page appears to be designed to present information about you as a developer, including your contact information and links to social media. Let's include a description of this page in the README draft.
 
 ---
 
@@ -242,9 +265,6 @@ The component can be easily integrated into other parts of the application:
 />
 ```
 ---
-Thank you for sharing the code for your `FilterCategory` component. It appears to be a user-friendly component for filtering content based on categories in your web application. Let's include a description of this component in the README draft.
-
----
 
 ## FilterCategory Component
 
@@ -273,10 +293,320 @@ The component can be used as follows:
 - **Responsiveness:** Adjusts button sizes for different screen sizes using Tailwind classes.
 
 ---
+Thank you for sharing the code for your `Footer` component. This component appears to be a neatly designed footer for your web application, featuring contact information and links. Let's include a description of this component in the README draft.
 
-As always, feel free to adjust this description to match your project's specific needs. If there are more components or other parts of your code that you'd like to include in the documentation, please don't hesitate to share them!
 ---
-### Getting Started
+
+## Footer Component
+
+### Description
+The `Footer` component is an elegant and functional footer for the web application. It includes contact information and links, making it easy for users to find ways to contact or follow the company or project.
+
+### Design and Layout
+- **Styling:** Uses Tailwind CSS to create a responsive and aesthetically pleasing footer.
+- **Flexible Layout:** Utilizes Flexbox to adjust the layout depending on screen size, with a column layout for smaller screens and a row layout for larger screens.
+- **Links:** Includes an email address and LinkedIn link with hover effects for an enhanced user experience.
+
+### Usage in the Project
+This footer is a reusable component that can be included on all pages of the application to provide a consistent user experience and easily accessible contact information.
+
+### Example Code Usage
+The component can be easily integrated into a page:
+
+```jsx
+<Footer />
+```
+---
+
+Thank you for sharing the code for your `FreelanceSection` component. This component appears to be designed to highlight freelance-related information, including a title, description, and a contact link. Let's include a description of this component in the README draft.
+
+---
+
+## FreelanceSection Component
+
+### Description
+The `FreelanceSection` is a specialized React component that presents information about freelance projects or services. It is designed to capture the attention of visitors with a clear title, descriptive text, and a call-to-action button.
+
+### Properties (`Props`)
+- **freelanceTitle:** The title for the freelance section.
+- **freelanceDescription:** A descriptive text about the freelance offering or services.
+- **freelanceContactUrl:** URL for contact or more information.
+- **freelanceProjectsButton:** The text on the button that encourages action.
+
+### Design and Usage
+- **Visual Appeal:** Uses a combination of text sizes and bold styling to create a visually appealing section.
+- **CTA Button:** Includes a 'Call To Action' button that encourages the user to find out more or contact for freelance projects.
+- **Styling:** Uses Tailwind CSS to give the button a distinct appearance and transition effects for interactivity.
+
+### Example Code Usage
+The component can be integrated into a page to highlight freelance offerings:
+
+```jsx
+<FreelanceSection
+  freelanceTitle="Freelance Projects"
+  freelanceDescription="Unique and customized solutions for your business"
+  freelanceContactUrl="mailto:contact@example.com"
+  freelanceProjectsButton="Contact Me"
+/>
+```
+---
+
+## Header Component
+
+### Description
+The `Header` component is a central part of the web application's layout, presenting a welcoming title and introductory text. This component is designed to provide an immediate visual impact when the user visits the page.
+
+### Properties (`Props`)
+- **titleHtml:** HTML-formatted title text that can include tags for custom formatting.
+- **presentingText:** A brief introductory text displayed above the title.
+
+### Design and Usage
+- **Text Presentation:** Uses HTML formatting for the title to allow custom styling and layout.
+- **Responsive Size:** Adjusts text size for different devices using responsive classes (e.g., `sm:text-8xl` for small devices).
+- **Central Placement:** Positions the text centrally on the page to capture the user's attention.
+
+### Example Code Usage
+The component can be used to create an impactful headline on a page:
+
+```jsx
+<Header
+  titleHtml="<span>Highlighting Title</span>"
+  presentingText="Welcome to My Website"
+/>
+```
+---
+Thank you for sharing the code for your `KeyFindings` component. This component appears to be designed to present key findings or insights in a concise and structured manner. Let's include a description of this component in the README draft.
+
+---
+
+## KeyFindings Component
+
+### Description
+The `KeyFindings` is a React component aimed at presenting key findings or insights in an organized and clear manner. It is designed to categorize information into sections like 'Basics', 'Goals', 'Problems', and 'Solutions', making it easy for users to quickly grasp the core points of a project or topic.
+
+### Properties (`Props`)
+- **keyFindingsBlock:** An object containing text fields for each category of information: basics, goals, problems, and solutions.
+
+### Design and Layout
+- **Grid Layout:** Uses CSS Grid to structure the information in a two-column layout that adapts to different screen sizes.
+- **Typographic Details:** Uses different text sizes and style levels to create hierarchy and improve readability.
+- **Aesthetic Design:** Includes a minimalist design with rounded corners and a light background to make the information more visually appealing.
+
+### Example Code Usage
+The component can be used to display summarized information about a project or study:
+
+```jsx
+<KeyFindings
+  keyFindingsBlock={{
+    basics: "Basic Information",
+    basicstext: "Detailed description of basic aspects.",
+    goals: "Goals",
+    goalstext: "Specific objectives the project aims to achieve.",
+    problems: "Problems",
+    problemstext: "Challenges and obstacles encountered.",
+    solutions: "Solutions",
+    solutionstext: "Approaches and solutions to the problems."
+  }}
+/>
+```
+---
+
+## LiveWorkButton Component
+
+### Description
+The `LiveWorkButton` is a customizable React button component designed to direct users to a specific URL. It's crafted to be eye-catching and user-friendly, encouraging interaction and engagement.
+
+### Properties (`Props`)
+- **buttonText:** The text displayed on the button, providing users with an indication of what will happen when clicked.
+- **buttonUrl:** The URL to which the user will be redirected upon clicking the button.
+
+### Design and Usage
+- **Visual Appeal:** The button features a bright blue background with white text, creating a strong visual contrast.
+- **Size Adaptability:** Support for different text sizes and padding depending on screen size, ensuring good readability and usability across various devices.
+- **Interactive Effects:** Includes an arrow icon and transition effects to enhance the user experience.
+
+### Example Code Usage
+The component can be easily integrated wherever an action button is needed:
+
+```jsx
+<LiveWorkButton
+  buttonText="See the Project Live"
+  buttonUrl="https://www.example.com"
+/>
+```
+---
+## Modal Component
+
+### Description
+The `Modal` is a flexible and reusable React component used to create a modal dialog box. This component is designed to display content or interactions above the existing page, providing a focused user experience.
+
+### Functionality
+- **User Interaction:** Allows users to dismiss the modal by clicking outside the content area or by pressing the 'Escape' key.
+- **Flexibility:** Can contain any optional React component or HTML element as children (`children`), allowing customization of the modal's content.
+- **Accessibility:** Includes a close button with a clear visual representation and an `aria-label` for accessibility.
+
+### Design and Usage
+- **Dimmed Background:** Uses a semi-transparent black background to distinguish the modal content from the rest of the page.
+- **Close Button:** Presents a clear close button in the upper right corner of the modal.
+- **Centered Content:** Centers the content within the modal to capture the user's attention.
+
+### Example Code Usage
+The component can be used to create a modal dialog on any page of the application:
+
+```jsx
+<Modal>
+  <p>Here is some important content!</p>
+</Modal>
+```
+---
+## Navigation Component
+
+### Description
+The `Navigation` component is a central part of the web application's user interface, designed to provide users with a simple and intuitive navigation experience. The component includes links to main pages such as 'Portfolio,' 'About Us,' and 'Contact.'
+
+### Properties (`Props`)
+- **portfolioLink, aboutLink, contactLink:** Objects containing the ID, title, and URI for each navigation link.
+
+### Design and Layout
+- **Flexible Layout:** Uses Flexbox to position navigation links in a balanced and responsive manner.
+- **Visually Appealing Links:** Styled links that change color on hover to enhance the user experience.
+- **Clear Structure:** Divides navigation links into 'left' and 'right' sections for easy orientation.
+
+### Usage in the Project
+The component is used to create a consistent navigation structure across the entire website, making it easy for users to find and navigate to different sections.
+
+### Example Code Usage
+The component can be integrated into a layout component or higher-order component to be included on all pages:
+
+```jsx
+<Navigation
+  portfolioLink={{ id: "1", title: "Portfolio", uri: "/portfolio" }}
+  aboutLink={{ id: "2", title: "About Us", uri: "/about" }}
+  contactLink={{ id: "3", title: "Contact", uri: "/contact" }}
+/>
+```
+---
+## NextProjectText Component
+
+### Description
+The `NextProjectText` component is a simple and functional React component designed to display text messages in an impactful way. It is particularly useful for highlighting messages like "Next Project" or similar prompts in a web application.
+
+### Properties (`Props`)
+- **text:** The string to be displayed. If no text value is provided, the component renders nothing.
+
+### Design and Usage
+- **Conditional Rendering:** Does not render anything if no text is provided, preventing unnecessary elements in the DOM.
+- **Centered Placement:** Centers the text on the screen using absolute positioning, making it ideal for highlighting important messages.
+- **Adjustable Text Size:** Uses different text sizes for different devices (from `text-xs` to `lg:text-3xl`), ensuring the message is easily readable on all screen sizes.
+
+### Example Code Usage
+The component can be used to add a brief information text to a page:
+
+```jsx
+<NextProjectText text="Discover Our Next Project" />
+```
+---
+## PictureBlock Component
+
+### Description
+The `PictureBlock` component is a React component designed to display images in a visually appealing manner, complete with associated navigation links. This component is ideal for highlighting project images, artwork, or other visual elements in a web application.
+
+### Properties (`Props`)
+- **pictureBlock:** An object containing image information, including URL and alt text, as well as additional navigation options.
+
+### Design and Layout
+- **Image Display:** Utilizes full width to maximize the visual impact of the image.
+- **Alt Text:** Includes alternative text for accessibility and SEO benefits.
+- **Navigation Link:** Presents a link associating the image with additional content or actions, enhancing user engagement.
+- **Aesthetic Background:** Adds a semi-transparent background to create depth and dimension.
+
+### Example Code Usage
+The component can be used to add an image section to a page with the option for navigation:
+
+```jsx
+<PictureBlock
+  pictureBlock={{
+    picture: {
+      mediaItemUrl: "path/to/image.jpg",
+      altText: "Descriptive Text"
+    },
+    replaceurl: "/next-page"
+  }}
+/>
+```
+---
+## PostsContainer Component
+
+### Description
+The `PostsContainer` is a React component used to display a collection of posts in a grid format. This component is ideal for presenting blog posts, project portfolios, or other types of content in an organized and visually appealing layout.
+
+### Properties (`Props`)
+- **hasPosts:** A boolean indicating whether there are any posts to display.
+- **filteredPosts:** An array of post objects to be displayed.
+
+### Design and Layout
+- **Grid Layout:** Utilizes CSS Grid to arrange the posts in a three-column structure.
+- **Image Display:** prominently displays the main image of each post.
+- **Responsive Design:** Adapts the layout for different screen sizes and devices.
+
+### Usage in the Project
+This component can be used on pages where posts or projects need to be presented in a neat and organized manner.
+
+### Example Code Usage
+The component can be used to create a page that displays a selection of posts:
+
+```jsx
+<PostsContainer
+  hasPosts={true}
+  filteredPosts={[
+    {
+      id: "1",
+      title: "Post 1",
+      slug: "post-1",
+      featuredImage: { node: { mediaItemUrl: "image.jpg" }},
+      PostInfo: { subtitle: "A brief description" }
+    }
+  ]}
+/>
+```
+---
+## ProjectPost Component
+
+### Description
+The `ProjectPost` is a React component used to present detailed information about a specific project or post. It includes functionalities for displaying a featured image and HTML-formatted content.
+
+### Properties (`Props`)
+- **postData:** An object containing the project's or post's title, content, and a URL to a featured image.
+
+### Design and Layout
+- **Image Display:** If a featured image is available, it is displayed as a full-width image at the top of the post.
+- **HTML Content:** Displays HTML-formatted content in a secure manner using `dangerouslySetInnerHTML`.
+- **Aesthetic Design:** Utilizes shadows and rounded corners to create an elegant and modern presentation.
+
+### Usage in the Project
+This component is useful for creating detailed views for individual projects or posts, providing users with a deeper understanding and insight into the presented material.
+
+### Example Code Usage
+The component can be used to display a project or post:
+
+```jsx
+<ProjectPost
+  postData={{
+    title: "Project Title",
+    content: "<p>Here is detailed content about the project...</p>",
+    featuredImage: {
+      node: {
+        mediaItemUrl: "path/to/image.jpg",
+        slug: "project-slug"
+      }
+    }
+  }}
+/>
+```
+
+---
+
+## Getting Started
 
 First, run the development server:
 
