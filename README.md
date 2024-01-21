@@ -150,7 +150,6 @@ getPost('post-slug').then(data => {
 - It's important to handle API keys and sensitive information securely, such as using environment variables.
 - It is recommended to enhance error handling to provide clearer feedback to the user in case of any errors.
 
-Thank you for sharing the `getPosts.tsx` file. This function appears to be a key component for fetching blog posts and related information from your WordPress backend. Let's include a description of this function in the README draft.
 
 ---
 
@@ -217,6 +216,7 @@ The code uses standard HTML and React/Next.js patterns to build the page's struc
 ...
 <img src="/images/portfolioFoto.jpg" alt="" />
 ```
+---
 
 ## ExploreButton Component
 
@@ -241,7 +241,41 @@ The component can be easily integrated into other parts of the application:
   buttonUrl="https://www.example.com"
 />
 ```
+---
+Thank you for sharing the code for your `FilterCategory` component. It appears to be a user-friendly component for filtering content based on categories in your web application. Let's include a description of this component in the README draft.
 
+---
+
+## FilterCategory Component
+
+### Description
+`FilterCategory` is a React component used to present a set of category filtering buttons. The component is designed to allow users to easily filter content based on categories by interacting with the buttons.
+
+### Functionality
+- **Next.js Routing:** Uses the Next.js `useRouter` hook to handle navigation to different category pages.
+- **Category Click Handling:** Each category is represented by a button that, when clicked, navigates the user to a page filtered by the selected category.
+- **Dynamic Rendering:** Renders a set of buttons based on the categories passed as `props`.
+
+### Usage in the Project
+The component enhances the user experience by providing a simple and intuitive way to filter content by category. This is particularly useful in applications with a large number of posts or articles.
+
+### Example Code Usage
+The component can be used as follows:
+
+```jsx
+<FilterCategory
+  categories={[{ databaseId: 1, name: 'Category 1' }, { databaseId: 2, name: 'Category 2' }]}
+/>
+```
+
+### Design and Style
+- **Styling:** Uses Tailwind CSS for responsive styling and interactive effects such as hover and focus rings.
+- **Responsiveness:** Adjusts button sizes for different screen sizes using Tailwind classes.
+
+---
+
+As always, feel free to adjust this description to match your project's specific needs. If there are more components or other parts of your code that you'd like to include in the documentation, please don't hesitate to share them!
+---
 ### Getting Started
 
 First, run the development server:
