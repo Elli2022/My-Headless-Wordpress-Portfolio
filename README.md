@@ -41,38 +41,6 @@ Button components designed to direct users to a specific URL, used to encourage 
 ### KeyFindings and PictureBlock
 Presents key findings and images in an impactful way, ideal for highlighting project information or artwork.
 
-## Contributions
-Contributions to the project are welcome. Create a fork, make your changes, and submit a pull request.
-
-## License
-Specify the license you are using for the project.
-
-## Contact
-Developer: Eleonora Nocentini Sköldebrink
-Organization: Capace Media Group AB
-Email: eleonora.nocentini@gmail.com
-
-### Installation
-* Clone the repo: git clone [repo-url]
-* Install dependencies: npm install or yarn install
-* Run the application: npm run dev or yarn dev
-
-### Features
-* Dynamic navigation menu based on page data
-* Automatically generated post cards based on WordPress data
-* Category filtering for posts
-* Pagination controls
-* Link to the GitHub project
-* Freelance project section with information and contact link
-
-
-### Contributing
-* Fork the project
-* Create a new branch (git checkout -b feature/AmazingFeature)
-* Commit your changes (git commit -m 'Add some AmazingFeature')
-* Push to the branch (git push origin feature/AmazingFeature)
-* Open a Pull Request
-
 
 ## Project/[slug]/page.tsx
 ### Description
@@ -202,11 +170,6 @@ getPosts(1, 6, "", "", "categoryId").then(data => {
   console.log(data);
 });
 ```
-
-### Notes
-- It is recommended to consider additional optimizations and improvements in error handling to ensure a robust user experience.
-- It's important to ensure that category IDs and other parameters are handled securely and efficiently.
-
 ---
 
 ## About Page (`AboutPage`)
@@ -293,9 +256,6 @@ The component can be used as follows:
 - **Responsiveness:** Adjusts button sizes for different screen sizes using Tailwind classes.
 
 ---
-Thank you for sharing the code for your `Footer` component. This component appears to be a neatly designed footer for your web application, featuring contact information and links. Let's include a description of this component in the README draft.
-
----
 
 ## Footer Component
 
@@ -316,9 +276,6 @@ The component can be easily integrated into a page:
 ```jsx
 <Footer />
 ```
----
-
-Thank you for sharing the code for your `FreelanceSection` component. This component appears to be designed to highlight freelance-related information, including a title, description, and a contact link. Let's include a description of this component in the README draft.
 
 ---
 
@@ -374,8 +331,6 @@ The component can be used to create an impactful headline on a page:
   presentingText="Welcome to My Website"
 />
 ```
----
-Thank you for sharing the code for your `KeyFindings` component. This component appears to be designed to present key findings or insights in a concise and structured manner. Let's include a description of this component in the README draft.
 
 ---
 
@@ -603,6 +558,33 @@ The component can be used to display a project or post:
   }}
 />
 ```
+
+---
+## Contact
+Developer: Eleonora Nocentini Sköldebrink
+Organization: Capace Media Group AB
+Email: eleonora.nocentini@gmail.com
+
+### Installation
+* Clone the repo: git clone [repo-url]
+* Install dependencies: npm install or yarn install
+* Run the application: npm run dev or yarn dev
+
+### Features
+* Dynamic navigation menu based on page data
+* Automatically generated post cards based on WordPress data
+* Category filtering for posts
+* Pagination controls
+* Link to the GitHub project
+* Freelance project section with information and contact link
+
+
+### Contributing
+* Fork the project
+* Create a new branch (git checkout -b feature/AmazingFeature)
+* Commit your changes (git commit -m 'Add some AmazingFeature')
+* Push to the branch (git push origin feature/AmazingFeature)
+* Open a Pull Request
 
 ---
 
