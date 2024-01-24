@@ -12,7 +12,7 @@ const Footer = () => {
           </a>
           <span className="hidden sm:block">|</span>
           <a
-            href="https://www.linkedin.com/company/folio"
+            href="https://www.linkedin.com/in/eleonora-nocentini-sk%C3%B6ldebrink-a2a46a63/"
             className="text-xs sm:text-sm text-blue-500 hover:underline"
           >
             LINKEDIN.COM/FOLIO
