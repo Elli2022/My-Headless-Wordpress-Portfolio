@@ -5,10 +5,10 @@ const Footer = () => {
     <footer className="text-center py-2 mt-4">
       <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 mb-6 relative z-10">
           <a
-            href="mailto:contact@folio.design"
+            href="mailto:eleonora.nocentini@gmail.com"
             className="text-xs sm:text-sm text-blue-500 hover:underline"
           >
-            CONTACT@FOLIO.DESIGN
+            ELEONORA.NOCENTINI@GMAIL.COM
           </a>
           <span className="hidden sm:block">|</span>
           <a
